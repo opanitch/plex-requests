@@ -1,0 +1,53 @@
+{
+  "name": "hermes",
+  "version": "1.0.0",
+  "description": "Front-end UI to allow users to submit information to a searchable, sortable database with checks for duplicates",
+  "scripts": {
+    "build:local": "cross-env BUILD_CONFIG=debug npm run build",
+    "build:production": "cross-env BUILD_CONFIG=release npm run build",
+    "build": "cross-env NODE_ENV=production node build/prod.js",
+    "start": "node build/dev.js"
+  },
+  "author": "Oren Panitch, Jake Barufkin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.16.2",
+    "babel-polyfill": "6.26.0",
+    "classnames": "2.2.5",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "history": "4.6.3",
+    "lodash": "4.17.4",
+    "normalize.css": "7.0.0",
+    "prop-types": "15.5.10",
+    "react": "15.6.1",
+    "react-addons-shallow-compare": "15.6.0",
+    "react-async-script": "0.9.1",
+    "react-autosuggest": "9.3.1",
+    "react-dates": "12.2.4",
+    "react-dom": "15.6.1",
+    "react-html-id": "0.1.1",
+    "react-redux": "5.0.5",
+    "react-router-dom": "4.1.1",
+    "redux": "3.7.1",
+    "redux-devtools-extension": "2.13.2",
+    "redux-form": "6.6.3",
+    "redux-saga": "0.15.4",
+    "reselect": "3.0.1"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "csv-loader": "^2.1.1",
+    "express": "^4.16.3",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.29.0",
+    "mysql": "^2.16.0",
+    "opener": "1.4.3",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.11.1",
+    "xml-loader": "^1.2.1"
+  },
+  "sasslintConfig": "./.sass-lint.yml"
+}
