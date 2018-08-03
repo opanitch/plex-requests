@@ -4,6 +4,11 @@ const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const opener = require('opener');
 
+// "build:local": "cross-env BUILD_CONFIG=debug npm run build",
+// "build:production": "cross-env BUILD_CONFIG=release npm run build",
+// "build": "cross-env NODE_ENV=production node build/prod.js",
+// "start": "node build/dev.js"
+
 // Local Vars
 const dir = path.join(__dirname, '../app/');
 const host = 'localhost';

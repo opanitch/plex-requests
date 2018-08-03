@@ -55,7 +55,7 @@ export class AppContainer extends Component {
 
           routePath = routePath || path;
 
-          if (routePath === '/network-map' && networkMapEnabled) {
+          if (routePath === '/network-map-wayho' && networkMapEnabled) {
             // Override layout for networkMapEnabled
             // Clear this code after switch is removed
             Layout = Flow;
