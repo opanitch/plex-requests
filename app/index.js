@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/AppContainer.jsx';
 // import configureStore, { history } from 'utils/store/configureStore';
 // styles
-// import './index.scss';
+import './index.scss';
 
 // if (process.env.NODE_ENV !== 'production') {
 //   // Enable Hot Module Replacement
