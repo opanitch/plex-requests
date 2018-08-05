@@ -1,31 +1,43 @@
 module.exports = {
-	"env": {
-		"es6": true,
-		"browser": true,
-		"node": true,
-		"jquery": true,
-		"jest": true
-	},
-	"plugins": [
-		"react",
-		"prettier"
-	],
-	"parser": "babel-eslint",
-	"parserOptions": {
-		"sourceType": "module",
-		"ecmaFeatures": {
-			"classes": true,
-			"jsx": true
-		}
-	},
-	"globals": {
-		"_": true,
-		"BCP": true,
-		"moment":  true
-	},
-	"extends": ["plugin:react/recommended", "prettier"],
-	"rules": {
-		"accessor-pairs": 2,
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jquery": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+    ],
+  	"globals": {
+        "_": true,
+        "moment":  true
+  	},
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier"
+    ],
+  	"parser": "babel-eslint",
+  	"parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "classes": true,
+            "jsx": true
+        }
+  	},
+    "rules": {
+        "accessor-pairs": 2,
         "block-scoped-var": 2,
         "callback-return": 0,
         "camelcase": 2,
@@ -161,8 +173,6 @@ module.exports = {
         "valid-typeof": 2,
         "vars-on-top": 2,
         "yoda": 2,
-		"prettier/prettier": [4, {"singleQuote": true}],
-		"no-console": [process.env.NODE_ENV === 'debug' ? 0 : 2, { "allow": ["warn", "error"] }],
-		"no-debugger": process.env.NODE_ENV === 'debug' ? 0 : 2
-	}
+        "prettier/prettier": "error"
+    }
 }

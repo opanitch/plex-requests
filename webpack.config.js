@@ -1,36 +1,45 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  },
+  devtool: 'inline-source-map',
   entry: {
-    main: "./app/index.js"
+    main: './app/index.js'
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader"
-        }
+        exclude: /node_modules/,
+        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }]
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
+        use: [
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[hash].js'
   },
   plugins: [
-    new CleanWebpackPlugin('dist', {} ),
+    new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
+      filename: 'style.[contenthash].css'
     }),
     new HtmlWebPackPlugin({
       inject: false,
@@ -41,4 +50,3 @@ module.exports = {
     new WebpackMd5Hash()
   ]
 };
-  

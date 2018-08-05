@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import Form from '../../containers/Form/Form.jsx';
 
@@ -9,9 +9,7 @@ class RequestForm extends Component {
   // };
 
   render() {
-    return (
-        <Form />
-    );
+    return <Form />;
   }
 }
 

@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { BrowserRouter } from 'react-router-dom';
 
 // main app
 import App from './containers/AppContainer.jsx';
@@ -10,7 +8,4 @@ import App from './containers/AppContainer.jsx';
 // styles
 import './index.scss';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));

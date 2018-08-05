@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Plex Requests</title>
 
-        <!-- <link rel="stylesheet" href="style.css"> -->
         <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.chunks.main.css %>">
     </head>
     <body>
@@ -25,7 +24,7 @@
               window.__PRELOADED_STATE__ = state;
             })();
           </script>
-          <!-- <script src="main.js"></script> -->
+
           <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
     </body>
 </html>

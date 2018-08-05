@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import { bindActionCreators } from 'redux';
 // import { connect } from 'react-redux';
 // import { Route, Switch } from 'react-router-dom';
@@ -11,7 +11,8 @@ import App from '../components/App.jsx';
 export class AppContainer extends Component {
   constructor(props) {
     super(props);
-    this.actions = props.actions;
+
+    // this.actions = props.actions;
   }
 
   // componentDidMount() {

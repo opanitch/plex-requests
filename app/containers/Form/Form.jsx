@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
 
 import Input from '../../components/Input/TextInput.jsx';
 
@@ -8,7 +8,7 @@ class FormContainer extends Component {
     super();
 
     this.state = {
-      seo_title: ""
+      seoTitle: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -19,7 +19,7 @@ class FormContainer extends Component {
   }
 
   render() {
-    const { seo_title } = this.state;
+    const { seoTitle } = this.state;
 
     return (
       <form id="article-form">
@@ -28,7 +28,7 @@ class FormContainer extends Component {
           label="seo_title"
           type="text"
           id="seo_title"
-          value={seo_title}
+          value={seoTitle}
           handleChange={this.handleChange}
         />
       </form>
