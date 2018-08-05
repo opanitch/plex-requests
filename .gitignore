@@ -1,6 +1,6 @@
 # Build Files
 /node_modules/
-npm-debug.log
+npm-debug.log*
 
 # Ignore compiled code
 /dist/

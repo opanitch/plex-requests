@@ -8,11 +8,11 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
-        <img src='' alt='Logo' />
+      <header className="pr-header">
+        <img className="pr-header-logo" src='' alt='Logo' />
         <LastUpdated />
         <HeaderNavigation />
-      </div>
+      </header>
     );
   }
 }

@@ -1,7 +1,9 @@
 // global styles
 @import "style/variables";
-@import "style/fonts";
-@import "style/mixins";
+// @import "style/fonts";
+// @import "style/mixins";
+
+// Container styles
+@import "containers/Header/Header";
 
 // Component styles
-// @import "components/Button/Button";
