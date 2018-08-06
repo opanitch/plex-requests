@@ -4,12 +4,23 @@ import React, { Component } from 'react';
 class HeaderNavigation extends Component {
   render() {
     return (
-      <nav>
-        <ul>
-          <li>Request List</li>
-          <li>Request Form</li>
-          <li>Plex Library</li>
-          <li className="">Face the Music</li>
+      <nav className="navigation">
+        <ul className="navigation-list">
+          <li className="navigation-list-item">
+            <a className="navigation-list-link" href="#">
+              Request List
+            </a>
+          </li>
+          <li className="navigation-list-item">
+            <a className="navigation-list-link" href="#">
+              Request Form
+            </a>
+          </li>
+          <li className="navigation-list-item">
+            <a className="navigation-list-link" href="#">
+              Plex Library
+            </a>
+          </li>
         </ul>
       </nav>
     );

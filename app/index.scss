@@ -3,7 +3,12 @@
 // @import "style/fonts";
 // @import "style/mixins";
 
+// Style Reset
+@import "style/reset";
+
 // Container styles
 @import "containers/Header/Header";
 
 // Component styles
+@import "components/LastUpdated/LastUpdated";
+@import "components/Navigation/HeaderNavigation";

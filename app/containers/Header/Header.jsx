@@ -8,8 +8,10 @@ class Header extends Component {
   render() {
     return (
       <header className="pr-header">
-        <img className="pr-header-logo" src="" alt="Logo" />
-        <LastUpdated />
+        <div className="pr-header-top-row">
+          <img className="pr-header-logo" src="" alt="Logo" />
+          <LastUpdated />
+        </div>
         <HeaderNavigation />
       </header>
     );

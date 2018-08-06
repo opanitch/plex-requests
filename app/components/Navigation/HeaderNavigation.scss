@@ -1,0 +1,19 @@
+.navigation {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+
+    &-list {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+
+        &-link {
+            padding: 10px 0;
+            display: inline-block;
+        }
+    }
+}
