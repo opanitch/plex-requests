@@ -3,6 +3,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+
+const autoprefixerSettings = {
+  browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Safari 8'],
+  flexbox: 'no-2009'
+};
 
 module.exports = {
   devServer: {
@@ -18,16 +24,53 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: [{ loader: 'babel-loader' }, { loader: 'eslint-loader' }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [['env', { modules: false }], 'react'],
+              plugins: [
+                'transform-class-properties',
+                'transform-object-rest-spread'
+              ]
+            }
+          },
+          {
+            loader: 'eslint-loader',
+            options: {
+              fix: true
+            }
+          }
+        ]
       },
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [autoprefixer(autoprefixerSettings)],
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       }
     ]

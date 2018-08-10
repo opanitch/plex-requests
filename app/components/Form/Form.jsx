@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 
-import Input from '../../components/Input/TextInput.jsx';
+import Input from '../Input/TextInput.jsx';
 
 class FormContainer extends Component {
   constructor() {

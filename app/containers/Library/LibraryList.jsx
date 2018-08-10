@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-import Form from '../../containers/Form/Form.jsx';
+import Table from '../../components/Table/Table.jsx';
 
-class RequestForm extends Component {
+class LibraryList extends Component {
   // static propTypes = {
   //   children: PropTypes.node
   // };
 
   render() {
-    return <Form />;
+    return <Table />;
   }
 }
 
-export default RequestForm;
+export default LibraryList;
