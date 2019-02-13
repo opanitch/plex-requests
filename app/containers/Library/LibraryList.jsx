@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
 
-import Table from '../../components/Table/Table.jsx';
+// import Table from '../../components/Table/Table.jsx';
 
-class LibraryList extends Component {
-  // static propTypes = {
-  //   children: PropTypes.node
-  // };
-
-  render() {
-    return <Table />;
-  }
-}
+const LibraryList = () => {
+  return <div>test</div>;
+};
 
 export default LibraryList;
