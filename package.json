@@ -37,6 +37,7 @@
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
+    "plex-api": "^5.2.1",
     "postcss-loader": "^2.1.6",
     "prettier": "^1.14.0",
     "prop-types": "^15.6.2",
