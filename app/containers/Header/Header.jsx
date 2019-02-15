@@ -9,7 +9,8 @@ const Header = () => {
   return (
     <header className="pr-header">
       <div className="pr-header-top-row">
-        <Icon title="Logo" icon="logo" classes="pr-icon-logo" />
+        <Icon title="Logo" icon="logo" classes="pr-header-logo" />
+        <Icon title="Logo" icon="logo.1" classes="pr-icon-logo" />
         <LastUpdated />
       </div>
       <HeaderNavigation />

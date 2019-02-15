@@ -13,5 +13,9 @@
     &-logo {
         display: inline-block;
         width: 255px;
+
+        &-two {
+            height: 100px;
+        }
     }
 }
