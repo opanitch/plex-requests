@@ -1,29 +1,22 @@
-const webpack = require('webpack');
-const SassLintPlugin = require('sasslint-webpack-plugin');
-
-const paths = require('./paths');
-const chunks = require('./plugins-chunks');
-const env = require('./environment');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const plugins = [
-  new webpack.NamedModulesPlugin(),
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  new webpack.optimize.CommonsChunkPlugin({ name: 'manifest' }),
-  ...chunks
+  new CleanWebpackPlugin('dist', {}),
+  new CopyWebpackPlugin([{ from: './app/assets', to: 'assets' }]),
+  new MiniCssExtractPlugin({
+    filename: 'style.[contenthash].css'
+  }),
+  new HtmlWebPackPlugin({
+    inject: false,
+    hash: true,
+    template: './app/index.ejs',
+    filename: 'index.html'
+  }),
+  new WebpackMd5Hash()
 ];
-
-if (env.LINT) {
-  plugins.push(
-    new SassLintPlugin({
-      context: paths.app,
-      quiet: true
-    })
-  );
-}
-
-if (env.MINIFY) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
-}
 
 module.exports = plugins;

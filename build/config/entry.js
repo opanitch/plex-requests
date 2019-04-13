@@ -1,3 +1,3 @@
 module.exports = {
-    app: './app/index.js'
+  main: './app/index.js'
 };
