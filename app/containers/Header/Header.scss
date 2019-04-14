@@ -1,6 +1,6 @@
 .pr-header {
     width: 100%;
-    padding: 10px 25px 0;
+    padding: 20px 25px 0;
     background: $black;
 
     &-top-row {
@@ -11,8 +11,12 @@
     }
 
     &-logo {
+        width: 150px;
+        height: 65px;
         display: inline-block;
-        width: 255px;
+        position: relative;
+        fill: #fff;
+        // fill: rgb(73, 73, 73);
 
         &-two {
             height: 100px;
