@@ -1,39 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // import ReactDOM from 'react-dom';
 
-import Input from '../Input/TextInput.jsx';
+import Button from '../Button/Button.jsx';
+import TextInput from '../Input/TextInput.jsx';
+import SectionTitle from '../SectionTitle/SectionTitle.jsx';
 
-class FormContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      seoTitle: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ [event.target.id]: event.target.value });
-  }
-
-  render() {
-    const { seoTitle } = this.state;
-
-    return (
-      <form id="article-form">
-        <Input
-          text="SEO title"
-          label="seo_title"
+const Form = ({ className, onSubmit, title }) => {
+  return (
+    <form
+      id="article-form"
+      className={className}
+      onSubmit={onSubmit}
+      method="POST"
+    >
+      <SectionTitle text={title} />
+      <div className="pr-requestform-inputs">
+        <TextInput
+          text="Movie Title"
+          label="movie_title"
           type="text"
-          id="seo_title"
-          value={seoTitle}
-          handleChange={this.handleChange}
+          id="movie_title"
+          value="Enter Movie Title"
         />
-      </form>
-    );
-  }
-}
+        <TextInput
+          text="What is your Plex username?"
+          label="plex_user"
+          type="text"
+          id="plex_user"
+          value="Plex User"
+        />
+        <Button />
+      </div>
+    </form>
+  );
+};
 
-export default FormContainer;
+Form.propTypes = {
+  className: PropTypes.string,
+  onSubmit: PropTypes.func,
+  title: PropTypes.string.isRequired
+};
+
+export default Form;

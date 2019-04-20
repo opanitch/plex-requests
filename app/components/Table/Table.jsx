@@ -1,92 +1,126 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 // import { connect } from 'react-redux';
 // import get from 'lodash/get';
 // import find from 'lodash/find';
+import map from 'lodash/map';
 // import partition from 'lodash/partition';
 
-class Table extends Component {
-  static propTypes = {
-    content: PropTypes.object,
-    className: PropTypes.string,
-    columns: PropTypes.array,
-    data: PropTypes.array,
-    defaultSort: PropTypes.string,
-    noDataMessage: PropTypes.string,
-    onSort: PropTypes.func,
-    onSortSuccess: PropTypes.func,
-    sortData: PropTypes.array
+const Table = props => {
+  console.log(`props object: ${Object.keys(props)}`);
+
+  const renderCell = cellData => {
+    if (!cellData) {
+      return null;
+    }
+
+    const { className, content, image } = cellData;
+
+    console.log(`cell data ${cellData}`);
+    if (typeof cellData === 'object') {
+      console.log(`data keys ${Object.keys(cellData)}`);
+    }
+    console.log(`________________________`);
+
+    if (image) {
+      return (
+        <td className={classNames('pr-table-poster', className)}>
+          <img src={image} alt={content} />
+        </td>
+      );
+    } else {
+      return <td className={className}>{content}</td>;
+    }
   };
 
-  constructor(props) {
-    super(props);
+  const renderRow = rowData => {
+    const { columns } = props;
+    const rowLength = columns.length;
+    const dataSplitNum = Math.ceil(rowData.length / rowLength);
 
-    // Bind class methods
-    this.renderCell = this.renderCell.bind(this);
-    this.renderHead = this.renderHead.bind(this);
-    this.renderRow = this.renderRow.bind(this);
-    this.renderTable = this.renderTable.bind(this);
+    console.log(`row data ${rowData}`);
+    console.log(`row length ${rowLength}`);
+    console.log(`dataSplitNum ${dataSplitNum}`);
 
-    // Initialize local state
-    this.state = {
-      defaultSort: props.defaultSort,
-      highlightedRow: null,
-      loading: true,
-      reverseSort: true
-    };
-  }
+    for (let i = 0; i < dataSplitNum; i++) {
+      return <tr>{map(rowData, data => renderCell(data))}</tr>;
+    }
+  };
 
-  renderTable() {
-    const { className, data } = this.props;
-    const { visibleCount } = this.state;
+  const renderHead = headerData => {
+    console.log(`header data ${headerData}`);
+
+    return headerData.length > -1 ? (
+      <thead className="pr-table-header">{renderRow(headerData)}</thead>
+    ) : null;
+  };
+
+  const renderBody = data => {
+    return <tbody className="pr-table-body">{renderRow(data)}</tbody>;
+  };
+
+  const renderFooter = () => {
+    const { columns, noDataMessage } = props;
+    const noDataMsg = noDataMessage || 'No Data';
+
+    return (
+      <tfoot className="pr-table-footer">
+        <tr className="pr-table-row">
+          <td className="pr-table-cell" colSpan={columns.length}>
+            <p className="pr-table-empty-message">{noDataMsg}</p>
+          </td>
+        </tr>
+      </tfoot>
+    );
+  };
+
+  const renderTable = () => {
+    const { className, columns, data } = props;
     const mainClass = 'pr-table';
     const totalCount = data && data.length;
-    const emptyDataClass = !totalCount ? 'pr-table--empty' : false;
-    const headerColumns = this.decoratedColumns.slice(0, -1);
+    const emptyDataClass = !(totalCount > 0) ? 'pr-table--empty' : false;
+    const headerColumns = columns; // .slice(0, -1)
+
+    console.log(`table data: ${Object.keys(data)}`);
+    console.log(`table data count: ${totalCount}`);
 
     return (
-      <table
-        className={classNames(mainClass, emptyDataClass, className)}
-        ref={node => (this.table = node)}
-      >
-        <thead className="pr-thead" ref={node => (this.thead = node)}>
-          <tr className="pr-tr">{headerColumns.map(this.renderHead)}</tr>
-        </thead>
-        {totalCount ? this.renderBody() : this.renderFooter()}
+      <table className={classNames(mainClass, emptyDataClass, className)}>
+        {renderHead(headerColumns)}
+        {/* {totalCount ? this.renderBody() : this.renderFooter()}
         {visibleCount && visibleCount < totalCount
           ? this.renderLoadMore(headerColumns.length)
-          : null}
+          : null} */}
+        {renderBody(data)}
+        {renderFooter()}
       </table>
     );
-  }
+  };
 
-  renderHead() {
-    return <td>Test Cell</td>;
-  }
+  const { className, content } = props;
+  const tableClasses = classNames('pr-table-container', className);
 
-  renderBody() {
-    return (
-      <tr>
-        <td>Test Body Cell</td>
-      </tr>
-    );
-  }
+  return (
+    <div className={tableClasses}>
+      {content.title ? (
+        <h2 className="pr-table-title">{content.title}</h2>
+      ) : null}
+      {renderTable()}
+    </div>
+  );
+};
 
-  renderRow() {}
-
-  renderCell() {}
-
-  renderFooter() {}
-
-  render() {
-    return (
-      <div className="pr-table-container">
-        <h2>Table Title</h2>
-        {this.renderTable}
-      </div>
-    );
-  }
-}
+Table.propTypes = {
+  content: PropTypes.object,
+  className: PropTypes.string,
+  columns: PropTypes.array, // required
+  data: PropTypes.array.isRequired,
+  // defaultSort: PropTypes.string,
+  noDataMessage: PropTypes.string
+  // onSort: PropTypes.func,
+  // onSortSuccess: PropTypes.func,
+  // sortData: PropTypes.array
+};
 
 export default Table;

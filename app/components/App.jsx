@@ -12,9 +12,9 @@ export const App = () => {
   return (
     <div className="plex-request">
       <Header />
-      <RequestList />
-      <RequestForm />
-      <LibraryList />
+      <RequestList title="Request List" />
+      <RequestForm title="Request Form" />
+      <LibraryList title="Plex List" />
     </div>
   );
 };

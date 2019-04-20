@@ -1,0 +1,10 @@
+.form-group {
+    display: flex;
+}
+
+.pr-input {
+
+    &-text {
+        flex-direction: column;
+    }
+}

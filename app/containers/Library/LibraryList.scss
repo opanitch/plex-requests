@@ -1,0 +1,16 @@
+.pr-librarylist {
+
+    &-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    &-title {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    &-table {
+        max-width: 960px;
+    }
+}
