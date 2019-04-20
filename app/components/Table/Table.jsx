@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import map from 'lodash/map';
 // import partition from 'lodash/partition';
 
+import TableTitle from './TableTitle.jsx';
+
 const Table = props => {
   console.log(`props object: ${Object.keys(props)}`);
 
@@ -103,9 +105,7 @@ const Table = props => {
 
   return (
     <div className={tableClasses}>
-      {content.title ? (
-        <h2 className="pr-table-title">{content.title}</h2>
-      ) : null}
+      {content.title ? <TableTitle text={content.title} /> : null}
       {renderTable()}
     </div>
   );

@@ -1,10 +1,30 @@
-.form-group {
+.pr-form-group {
     display: flex;
 }
 
 .pr-input {
 
-    &-text {
+    &-container {
+        display: flex;
+    }
+
+    &--text {
         flex-direction: column;
+
+        & + & {
+            margin-left: 15px;
+        }
+
+        & .pr-input {
+            padding: 10px;
+            background-color: rgba(210, 210, 210, 0.3);
+            border: 0;
+
+            &-label {
+                margin-bottom: 5px;
+                font-size: $font-size-body--small;
+                color: $white;
+            }
+        }
     }
 }

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 // import ReactDOM from 'react-dom';
 
 import Button from '../Button/Button.jsx';
+import FormTitle from '../Form/FormTitle.jsx';
 import TextInput from '../Input/TextInput.jsx';
-import SectionTitle from '../SectionTitle/SectionTitle.jsx';
 
 const Form = ({ className, onSubmit, title }) => {
   return (
@@ -14,23 +14,25 @@ const Form = ({ className, onSubmit, title }) => {
       onSubmit={onSubmit}
       method="POST"
     >
-      <SectionTitle text={title} />
+      <FormTitle text={title} />
       <div className="pr-requestform-inputs">
         <TextInput
-          text="Movie Title"
-          label="movie_title"
-          type="text"
           id="movie_title"
+          label="movie_title"
+          isRequired="false"
+          text="Movie Title"
+          type="text"
           value="Enter Movie Title"
         />
         <TextInput
-          text="What is your Plex username?"
-          label="plex_user"
-          type="text"
           id="plex_user"
+          label="plex_user"
+          isRequired="false"
+          text="What is your Plex username?"
+          type="text"
           value="Plex User"
         />
-        <Button />
+        <Button type="submit" className="pr-requestform-submit" />
       </div>
     </form>
   );
