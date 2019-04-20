@@ -32,7 +32,13 @@ const Form = ({ className, onSubmit, title }) => {
           type="text"
           value="Plex User"
         />
-        <Button type="submit" className="pr-requestform-submit" />
+        <div className="pr-requestform-actions">
+          <Button
+            type="submit"
+            className="pr-button--primary pr-requestform-submit"
+            text="Submit Request"
+          />
+        </div>
       </div>
     </form>
   );
