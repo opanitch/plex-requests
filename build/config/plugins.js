@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 
 const plugins = [
-  new CleanWebpackPlugin('dist', {}),
+  new CleanWebpackPlugin(),
   new CopyWebpackPlugin([{ from: './app/assets', to: 'assets' }]),
   new MiniCssExtractPlugin({
     filename: 'style.[contenthash].css'

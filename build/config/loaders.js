@@ -15,11 +15,7 @@ module.exports = {
         {
           loader: 'babel-loader',
           options: {
-            presets: [['env', { modules: false }], 'react'],
-            plugins: [
-              'transform-class-properties',
-              'transform-object-rest-spread'
-            ]
+            presets: [['@babel/env', { modules: false }], '@babel/react']
           }
         },
         {
