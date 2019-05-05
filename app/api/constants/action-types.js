@@ -1,0 +1,12 @@
+export const ACTION_TYPES = Object.assign(
+  {},
+  {
+    ADD_ARTICLE: 'ADD_ARTICLE',
+    GET_LIBRARY: 'GET_LIBRARY',
+    MAKE_REQUEST: 'MAKE_REQUEST',
+    SET_LIBRARY: 'SET_LIBRARY',
+    SET_LIBRARY_FILTER: 'SET_LIBRARY_FILTER'
+  }
+);
+
+export default ACTION_TYPES;
