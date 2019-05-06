@@ -1,7 +1,7 @@
-const initialState = {};
+import { default as store } from './store';
+import * as actions from './actions';
+
 const reduxEnhancers = [];
-let store;
-let actions;
 let reducer;
 let api;
 

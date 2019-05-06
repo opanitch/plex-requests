@@ -63,7 +63,6 @@ module.exports = {
     'max-params': 0,
     'max-statements': 0,
     'new-cap': [2, { properties: false }],
-    'newline-after-var': 1,
     'no-alert': 2,
     'no-array-constructor': 2,
     'no-bitwise': 2,
@@ -158,6 +157,16 @@ module.exports = {
     'object-shorthand': 0,
     'one-var': 0,
     'operator-assignment': 2,
+    'padding-line-between-statements': [
+      'error',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      {
+        blankLine: 'any',
+        prev: ['const', 'let', 'var'],
+        next: ['const', 'let', 'var']
+      },
+      { blankLine: 'always', prev: '*', next: 'return' }
+    ],
     'prefer-const': 2,
     'prefer-spread': 0,
     radix: 2,
