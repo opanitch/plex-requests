@@ -1,11 +1,11 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// main app
+// React Components/Container
 import AppContainer from './containers/AppContainer.jsx';
-// import configureStore, { history } from 'utils/store/configureStore';
 
 // styles
-import './index.scss';
+import './style/index.scss';
 
 ReactDOM.render(<AppContainer />, document.getElementById('app'));

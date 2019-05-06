@@ -4,7 +4,7 @@ const initialState = {
   articles: []
 };
 
-export default function testReducer(state = initialState, action) {
+export default function libraryReducer(state = initialState, action) {
   switch (action) {
     case ACTION_TYPES.ADD_ARTICLE:
       return Object.assign(
