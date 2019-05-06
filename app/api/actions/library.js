@@ -1,6 +1,6 @@
 import { ACTION_TYPES } from '../constants';
 
-const getLibrary = (user, token) => {
+export const getLibrary = (user, token) => {
   return {
     type: ACTION_TYPES.GET_LIBRARY,
     payload: {
@@ -10,7 +10,7 @@ const getLibrary = (user, token) => {
   };
 };
 
-const setLibrary = data => {
+export const setLibrary = data => {
   return {
     type: ACTION_TYPES.SET_LIBRARY,
     payload: {
@@ -19,7 +19,7 @@ const setLibrary = data => {
   };
 };
 
-const setLibraryFilter = filterName => {
+export const setLibraryFilter = filterName => {
   return {
     type: ACTION_TYPES.SET_LIBRARY_FILTER,
     payload: {

@@ -1,10 +1,5 @@
-import { ACTION_TYPES } from './constants';
-
 import { default as LIBRARY_ACTIONS } from './actions/library';
 import { default as REQUEST_ACTIONS } from './actions/requests';
+import { default as TEST_ACTIONS } from './actions/test-actions';
 
-export function addArticle(payload) {
-  return { type: ACTION_TYPES.ADD_ARTICLE, payload };
-}
-
-export { LIBRARY_ACTIONS, REQUEST_ACTIONS };
+export { LIBRARY_ACTIONS, REQUEST_ACTIONS, TEST_ACTIONS };
