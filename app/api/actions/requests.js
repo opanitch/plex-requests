@@ -1,6 +1,6 @@
 import { ACTION_TYPES } from '../constants';
 
-const submitRequest = (user, title) => {
+export const submitRequest = (user, title) => {
   return {
     type: ACTION_TYPES.MAKE_REQUEST,
     payload: {
