@@ -1,11 +1,6 @@
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const autoprefixerSettings = {
-  browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Safari 8'],
-  flexbox: 'no-2009'
-};
-
 module.exports = {
   rules: [
     {
@@ -44,7 +39,7 @@ module.exports = {
         {
           loader: 'postcss-loader',
           options: {
-            plugins: () => [autoprefixer(autoprefixerSettings)],
+            plugins: () => [autoprefixer()],
             sourceMap: true
           }
         },

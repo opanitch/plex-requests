@@ -1,4 +1,6 @@
+const paths = require('./paths');
+
 module.exports = {
-  contentBase: './dist',
+  contentBase: paths.output,
   hot: true
 };
