@@ -4,7 +4,7 @@ const initialState = {
   articles: []
 };
 
-function rootReducer(state = initialState, action) {
+export function rootReducer(state = initialState, action) {
   switch (action) {
     case ACTION_TYPES.ADD_ARTICLE:
       return Object.assign(
@@ -20,4 +20,6 @@ function rootReducer(state = initialState, action) {
   return state;
 }
 
-export default rootReducer;
+export default {
+  rootReducer
+};
