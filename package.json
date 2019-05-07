@@ -8,6 +8,7 @@
   "description": "Front-end UI to allow users to submit information to a searchable, sortable database with checks for duplicates",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --mode=development --hot --open",
+    "start-mark": "NODE_ENV=development webpack-dev-server --mode=development --hot --open --public=app2.lvmgmtll.com",
     "build": "webpack --mode production",
     "update": "npm ci"
   },
