@@ -1,17 +1,15 @@
-// React
 import React from 'react';
-// Redux
 import { Provider } from 'react-redux';
 
 // Store
-import { builtStore } from '../api/api';
+import FACTORY from '../api/factory';
 
 // React Components/Container
 import App from '../components/App.jsx';
 
 export const AppContainer = () => {
   return (
-    <Provider store={builtStore}>
+    <Provider store={FACTORY.STORE}>
       <App />
     </Provider>
   );

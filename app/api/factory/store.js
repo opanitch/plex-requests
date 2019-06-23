@@ -1,30 +1,18 @@
-// Redux
-import {
-  applyMiddleware,
-  compose,
-  createStore as reduxCreateStore
-} from 'redux';
+import { compose, createStore } from 'redux';
 
-export function createStore(
-  reducers,
-  initialState,
-  middlewareStack,
-  storeEnhancers
-) {
-  let enhancers;
+import reducers from './reducers';
 
-  if (storeEnhancers && storeEnhancers.length) {
-    enhancers = compose(
-      applyMiddleware(...middlewareStack),
-      ...storeEnhancers
-    );
-  } else {
-    enhancers = compose(applyMiddleware(...middlewareStack));
-  }
+const initialState = {};
+const storeEnhancers = [];
+const ENV = process.env.NODE_ENV;
 
-  return reduxCreateStore(reducers, initialState, enhancers);
+// eslint-disable-next-line
+if (ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+  // eslint-disable-next-line
+  storeEnhancers.push(window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
-export default {
-  createStore
-};
+const enhancers = compose(...storeEnhancers);
+const store = createStore(reducers, initialState, enhancers);
+
+export default store;

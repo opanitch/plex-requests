@@ -1,5 +1,5 @@
-import store from '../store';
-import { TEST_ACTIONS } from '../actions';
+import { default as STORE } from './store';
+// import { default as ACTIONS } from './actions';
+import { default as REDUCERS } from './reducers';
 
-window.store = store;
-window.addArticle = TEST_ACTIONS.addArticle;
+export default { STORE, REDUCERS };

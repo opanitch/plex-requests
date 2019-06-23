@@ -1,16 +1,16 @@
 import { ACTION_TYPES } from '../constants';
 
 const initialState = {
-  articles: []
+  testArticles: []
 };
 
-export default function testReducer(state = initialState, action) {
+const testReducer = (state = initialState, action) => {
   switch (action) {
     case ACTION_TYPES.ADD_ARTICLE:
       return Object.assign(
         {},
         {
-          articles: state.articles.concat(action.payload)
+          testArticles: state.articles.concat(action.payload)
         }
       );
     default:
@@ -18,4 +18,6 @@ export default function testReducer(state = initialState, action) {
   }
 
   return state;
-}
+};
+
+export default testReducer;
