@@ -1,13 +1,14 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Header from '../containers/Header/Header.jsx';
 import RequestList from '../containers/Request/RequestList.jsx';
 // import RequestForm from '../containers/Request/RequestForm.jsx';
 import LibraryList from '../containers/Library/LibraryList.jsx';
 
-export const App = () => {
-  // console.log();
+export const App = (actions, viewState) => {
+  console.log('viewState');
+  console.log(viewState);
 
   return (
     <div className="plex-request">
@@ -19,4 +20,7 @@ export const App = () => {
   );
 };
 
-export default App;
+export default connect(
+  state => ({ viewState: { ...state } }),
+  {}
+)(App);
