@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+// import { connect } from 'react-redux';
 // import get from 'lodash/get';
 // import find from 'lodash/find';
 import map from 'lodash/map';
 // import partition from 'lodash/partition';
-import uuidv1 from 'uuid';
 
 import TableTitle from './TableTitle.jsx';
 
 const Table = props => {
-  // console.log(`props object: ${Object.keys(props)}`);
+  console.log(`props object: ${Object.keys(props)}`);
 
   const renderCell = cellData => {
     if (!cellData) {
@@ -18,26 +18,21 @@ const Table = props => {
     }
 
     const { className, content, image } = cellData;
-    const id = uuidv1();
 
-    // console.log(`cell data ${cellData}`);
-    // if (typeof cellData === 'object') {
-    //   console.log(`data keys ${Object.keys(cellData)}`);
-    // }
-    // console.log(`________________________`);
+    console.log(`cell data ${cellData}`);
+    if (typeof cellData === 'object') {
+      console.log(`data keys ${Object.keys(cellData)}`);
+    }
+    console.log(`________________________`);
 
     if (image) {
       return (
-        <td key={id} className={classNames('pr-table-poster', className)}>
+        <td className={classNames('pr-table-poster', className)}>
           <img src={image} alt={content} />
         </td>
       );
     } else {
-      return (
-        <td key={id} className={className}>
-          {content}
-        </td>
-      );
+      return <td className={className}>{content}</td>;
     }
   };
 
@@ -46,9 +41,9 @@ const Table = props => {
     const rowLength = columns.length;
     const dataSplitNum = Math.ceil(rowData.length / rowLength);
 
-    // console.log(`row data ${rowData}`);
-    // console.log(`row length ${rowLength}`);
-    // console.log(`dataSplitNum ${dataSplitNum}`);
+    console.log(`row data ${rowData}`);
+    console.log(`row length ${rowLength}`);
+    console.log(`dataSplitNum ${dataSplitNum}`);
 
     for (let i = 0; i < dataSplitNum; i++) {
       return <tr>{map(rowData, data => renderCell(data))}</tr>;
@@ -56,9 +51,9 @@ const Table = props => {
   };
 
   const renderHead = headerData => {
-    // console.log(`header data ${headerData}`);
+    console.log(`header data ${headerData}`);
 
-    return headerData ? (
+    return headerData.length > -1 ? (
       <thead className="pr-table-header">{renderRow(headerData)}</thead>
     ) : null;
   };
@@ -84,46 +79,42 @@ const Table = props => {
 
   const renderTable = () => {
     const { className, columns, data } = props;
-    // const { className, data } = props;
     const mainClass = 'pr-table';
     const totalCount = data && data.length;
     const emptyDataClass = !(totalCount > 0) ? 'pr-table--empty' : false;
     const headerColumns = columns; // .slice(0, -1)
 
-    // console.log(`table data: ${Object.keys(data)}`);
-    // console.log(`table data count: ${totalCount}`);
+    console.log(`table data: ${Object.keys(data)}`);
+    console.log(`table data count: ${totalCount}`);
 
     return (
       <table className={classNames(mainClass, emptyDataClass, className)}>
         {renderHead(headerColumns)}
-        {/* {renderHead()} */}
+        {/* {totalCount ? this.renderBody() : this.renderFooter()}
+        {visibleCount && visibleCount < totalCount
+          ? this.renderLoadMore(headerColumns.length)
+          : null} */}
         {renderBody(data)}
         {renderFooter()}
       </table>
     );
   };
 
-  const { articles, className, content } = props;
+  const { className, content } = props;
   const tableClasses = classNames('pr-table-container', className);
-
-  console.log(`articles ${articles}`);
 
   return (
     <div className={tableClasses}>
       {content.title ? <TableTitle text={content.title} /> : null}
       {renderTable()}
-      {articles
-        ? articles.map(article => <div key={article.id}>{article.title}</div>)
-        : null}
     </div>
   );
 };
 
 Table.propTypes = {
-  articles: PropTypes.array,
   content: PropTypes.object,
   className: PropTypes.string,
-  columns: PropTypes.array,
+  columns: PropTypes.array, // required
   data: PropTypes.array.isRequired,
   // defaultSort: PropTypes.string,
   noDataMessage: PropTypes.string
