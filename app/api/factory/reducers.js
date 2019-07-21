@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
-import REDUCERS from '../reducers';
+import * as REDUCERS from '../reducers';
 
-const createReducer = combineReducers({ ...REDUCERS });
+const createReducer = combineReducers({
+  plex: REDUCERS.LIBRARY_REDUCER,
+  requestList: REDUCERS.REQUEST_REDUCER,
+  testSection: REDUCERS.TEST_REDUCER
+});
 
 export default createReducer;

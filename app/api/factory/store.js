@@ -1,8 +1,11 @@
 import { compose, createStore } from 'redux';
 
-import reducers from './reducers';
+import reducer from './reducers';
 
-const initialState = {};
+const initialState = {
+  plex: {},
+  requestList: []
+};
 const storeEnhancers = [];
 const ENV = process.env.NODE_ENV;
 
@@ -13,6 +16,6 @@ if (ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__) {
 }
 
 const enhancers = compose(...storeEnhancers);
-const store = createStore(reducers, initialState, enhancers);
+const store = createStore(reducer, initialState, enhancers);
 
 export default store;
