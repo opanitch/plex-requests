@@ -1,6 +1,6 @@
 {
   "name": "plex-requests",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/opanitch/plex-requests.git"
@@ -23,8 +23,10 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.2",
+    "@types/react-redux": "^7.1.16",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "autoprefixer": "^10.2.4",
@@ -48,7 +50,13 @@
     "html-webpack-plugin": "^5.2.0",
     "mini-css-extract-plugin": "^1.3.9",
     "node-sass": "^5.0.0",
+    "postcss": "^8.2.7",
+    "postcss-cli": "^8.3.1",
+    "postcss-comment": "^2.0.0",
+    "postcss-import": "^14.0.0",
+    "postcss-inline-svg": "^5.0.0",
     "postcss-loader": "^5.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "sass-lint": "^1.13.1",
     "sass-loader": "^11.0.1",

@@ -1,9 +1,8 @@
-// React
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 // styles
-import './style/index.scss';
+import './style/app.css';
 
 // React Components/Container
 import AppContainer from 'Containers/AppContainer';

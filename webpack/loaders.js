@@ -1,64 +1,44 @@
 // const path = require('path');
-const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// const postCSSPlugins = require('./postcss.config');
+const postCSSPlugins = require('./postcss.config');
 
 module.exports = [
   {
     test: /\.(js|ts)x?$/,
     exclude: /node_modules/,
     use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          presets: [['@babel/env', { modules: false }], '@babel/react']
-        }
-      },
+      'babel-loader',
       {
         loader: 'eslint-loader',
         options: {
-          fix: true
-        }
-      }
-    ]
+          fix: true,
+        },
+      },
+    ],
   },
   {
-    test: /\.scss$/,
+    test: /\.(s?css)$/,
+    exclude: /node_modules/,
     use: [
-      {
-        loader: 'style-loader'
-      },
-      {
-        loader: MiniCssExtractPlugin.loader
-      },
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: true
-        }
-      },
+      'style-loader',
+      'css-loader',
+      'sass-loader',
       {
         loader: 'postcss-loader',
         options: {
-          plugins: () => [autoprefixer()],
-          sourceMap: true
-        }
+          postcssOptions: postCSSPlugins,
+        },
       },
-      {
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true
-        }
-      }
-    ]
+    ],
   },
   {
     test: /\.(eot|ttf|woff|woff2)$/,
+    exclude: /node_modules/,
     loader: 'file-loader',
     options: {
       name: 'assets/fonts/[name].[ext]',
-      esModule: false
-    }
-  }
+      esModule: false,
+    },
+  },
 ];
