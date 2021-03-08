@@ -1,7 +1,8 @@
 # Build Files
-/node_modules/
+/node_modules
 npm-debug.log*
 **/.DS_Store
 
 # Ignore compiled code
-/dist/
+/dist
+/public

@@ -1,39 +1,28 @@
 module.exports = {
   env: {
+    amd: true,
     browser: true,
     commonjs: true,
     es6: true,
     node: true,
-    jquery: true,
-    jest: true
+    jest: true,
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
-    'prettier',
-    'plugin:prettier/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:compat/recommended',
+    'plugin:prettier/recommended',
   ],
-  globals: {
-    _: true,
-    moment: true
-  },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module'
-  },
-  plugins: ['react', 'prettier'],
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module',
-    ecmaFeatures: {
-      classes: true,
-      jsx: true
-    }
-  },
+  parser: '@typescript-eslint/parser',
+  plugins: ['html', 'prettier', 'react', '@typescript-eslint', 'react-hooks'],
   rules: {
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     'accessor-pairs': 2,
     'block-scoped-var': 2,
     'callback-return': 0,
@@ -163,14 +152,34 @@ module.exports = {
       {
         blankLine: 'any',
         prev: ['const', 'let', 'var'],
-        next: ['const', 'let', 'var']
+        next: ['const', 'let', 'var'],
       },
-      { blankLine: 'always', prev: '*', next: 'return' }
+      { blankLine: 'always', prev: '*', next: 'return' },
     ],
     'prefer-const': 2,
     'prefer-spread': 0,
+    'prettier/prettier': ['error'],
     radix: 2,
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'require-yield': 2,
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      },
+    ],
     'sort-vars': 0,
     'space-return-throw-case': 0,
     'spaced-comment': 1,
@@ -180,6 +189,5 @@ module.exports = {
     'valid-typeof': 2,
     'vars-on-top': 2,
     yoda: 2,
-    'prettier/prettier': 'error'
-  }
+  },
 };
