@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VirtualModulesPlugin = require('webpack-virtual-modules');
 const WebpackMd5Hash = require('webpack-md5-hash');
 
@@ -29,9 +28,6 @@ module.exports = (env) => [
     'process.env.NODE_ENV': JSON.stringify(env),
   }),
   new CopyWebpackPlugin({ patterns: [{ from: './assets', to: 'assets' }] }),
-  new MiniCssExtractPlugin({
-    filename: 'style.[contenthash].css',
-  }),
   new HtmlWebPackPlugin({
     chunks: ['browser-check', 'main'],
     filename: 'index.html',
@@ -42,7 +38,7 @@ module.exports = (env) => [
       removeComments: true,
       removeRedundantAttributes: true,
     },
-    template: path.resolve(__dirname, '../app/index.ejs'),
+    template: path.resolve(__dirname, '../index.html'),
     title: 'Plex Requests',
   }),
   // Unsupported Browsers Page

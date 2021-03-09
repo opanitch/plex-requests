@@ -1,4 +1,3 @@
-declare module '*.html';
 declare module '*.jpg';
 declare module '*.svg' {
   import * as React from 'react';

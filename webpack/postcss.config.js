@@ -1,5 +1,5 @@
 module.exports = {
-  parser: require('postcss-comment'),
+  ident: 'postcss',
   plugins: [
     ['postcss-import'],
     [
@@ -9,5 +9,7 @@ module.exports = {
         stage: 0,
       },
     ],
+    ['autoprefixer'],
   ],
+  syntax: 'postcss-scss',
 };

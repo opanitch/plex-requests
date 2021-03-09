@@ -7,13 +7,13 @@
 @import './base/reset.scss';
 
 /* Container styles */
-/* @import '../containers/Header/Header.scss';
+@import '../containers/Header/Header.scss';
 @import '../containers/Library/LibraryList.scss';
 @import '../containers/Request/RequestForm.scss';
-@import '../containers/Request/RequestList.scss'; */
+@import '../containers/Request/RequestList.scss';
 
 /* Component styles */
-/* @import '../components/Button/Button.scss';
+@import '../components/Button/Button.scss';
 @import '../components/Icon/Icon.scss';
 @import '../components/LastUpdated/LastUpdated.scss';
 @import '../components/Navigation/HeaderNavigation.scss';
@@ -22,4 +22,4 @@
 @import '../components/Form/FormTitle.scss';
 @import '../components/Input/TextInput.scss';
 @import '../components/Table/Table.scss';
-@import '../components/Table/TableTitle.scss'; */
+@import '../components/Table/TableTitle.scss';
