@@ -7,4 +7,4 @@ import './style/app.css';
 // React Components/Container
 import AppContainer from 'Containers/AppContainer';
 
-ReactDOM.render(<AppContainer />, document.getElementById('app'));
+ReactDOM.render(<AppContainer />, document.getElementById('plex-requests'));
