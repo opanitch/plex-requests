@@ -1,10 +1,10 @@
 module.exports.BROWSER_TYPES = {
   MOBILE: 'mobile',
-  WEB: 'web'
+  WEB: 'web',
 };
 
 module.exports.ENVIRONMENTS = {
   DEVELOPMENT: 'development',
   PRODUCTION: 'production',
-  STAGING: 'staging'
+  STAGING: 'staging',
 };

@@ -1,0 +1,73 @@
+{
+  "env": {
+    "amd": true,
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:compat/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [
+    {
+      "env": {
+        "es6": true,
+        "node": true
+      },
+      "files": ["*.js", "build/**", "webpack/**"]
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["html", "prettier", "react", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/jsx-no-lambda": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-submodule-imports": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/prefer-interface": "off",
+    "no-console": "off",
+    "no-useless-return": "error",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      },
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ],
+    "prefer-const": 2,
+    "prefer-spread": 0,
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js", ".ts", ".tsx"]
+      }
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "sort-keys": "off"
+  }
+}

@@ -32,10 +32,6 @@ module.exports = [
   {
     test: /\.(eot|ttf|woff|woff2)$/,
     exclude: /node_modules/,
-    loader: 'file-loader',
-    options: {
-      name: 'assets/fonts/[name].[ext]',
-      esModule: false,
-    },
+    type: 'asset/resource',
   },
 ];

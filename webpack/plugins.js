@@ -27,6 +27,10 @@ module.exports = (env) => [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(env),
   }),
+  new webpack.ProvidePlugin({
+    Buffer: ['buffer', 'Buffer'],
+  }),
+  new webpack.ProvidePlugin({ process: ['process'] }),
   new CopyWebpackPlugin({ patterns: [{ from: './assets', to: 'assets' }] }),
   new HtmlWebPackPlugin({
     chunks: ['browser-check', 'main'],
