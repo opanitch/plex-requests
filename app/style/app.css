@@ -1,24 +1,26 @@
 /* global styles */
 @import './settings/variables.scss';
-/* @import "style/fonts";
-@import "style/mixins"; */
+/* @import "./settings/mixins.scss"; */
+@import './settings/sticky-footer.scss';
 
 /* Style Reset */
 @import './base/reset.scss';
+/* @import "./base/fonts.scss";
+@import "./base/global.scss"; */
+@import './base/branding.scss';
 
 /* Atoms styles */
 @import '../atoms/Button/Button.scss';
+@import '../atoms/Card/Card.scss';
 @import '../atoms/Icon/Icon.scss';
 @import '../atoms/Input/TextInput.scss';
 
 /* Component styles */
 @import '../components/Form/Form.scss';
-@import '../components/Form/FormTitle.scss';
+@import '../components/FullWidthContainer/FullWidthContainer.scss';
 @import '../components/LastUpdated/LastUpdated.scss';
 @import '../components/Navigation/HeaderNavigation.scss';
-/* @import '../components/SectionTitle/SectionTitle.scss'; */
 @import '../components/Table/Table.scss';
-@import '../components/Table/TableTitle.scss';
 
 /* Container styles */
 @import '../containers/Header/Header.scss';

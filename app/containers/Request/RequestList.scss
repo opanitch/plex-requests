@@ -1,16 +1,14 @@
 .pr-requestlist {
+  &-container {
+    padding: 20px 0;
+  }
 
-    &-container {
-        width: 100%;
-        padding: 20px;
-    }
+  &-title {
+    margin-bottom: 10px;
+    text-align: left;
+  }
 
-    &-title {
-        margin-bottom: 10px;
-        text-align: left;
-    }
-
-    &-table {
-        max-width: 960px;
-    }
+  &-table {
+    max-width: 960px;
+  }
 }

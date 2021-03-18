@@ -1,25 +1,27 @@
 .pr-header {
-    width: 100%;
-    padding: 20px 25px 0;
-    background: $black;
+  width: 100%;
+  padding: 20px 25px 0;
 
-    &-top-row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
+  &-container {
+    background: $dark-grey-3;
+  }
+
+  &-top-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &-logo {
+    width: 150px;
+    height: 65px;
+    display: inline-block;
+    position: relative;
+    fill: $white;
+
+    &-two {
+      height: 100px;
     }
-
-    &-logo {
-        width: 150px;
-        height: 65px;
-        display: inline-block;
-        position: relative;
-        fill: #fff;
-        // fill: rgb(73, 73, 73);
-
-        &-two {
-            height: 100px;
-        }
-    }
+  }
 }

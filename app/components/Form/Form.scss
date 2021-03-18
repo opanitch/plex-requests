@@ -1,6 +1,10 @@
 .pr-form {
+  &-container {
+    display: flex;
+  }
 
-    &-container {
-        display: flex;
-    }
+  &-title {
+    font-size: $font-size-h4;
+    color: $white;
+  }
 }
