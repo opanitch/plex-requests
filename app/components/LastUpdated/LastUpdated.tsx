@@ -10,7 +10,7 @@ const LastUpdated = ({ text }) => {
 };
 
 LastUpdated.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 export default LastUpdated;

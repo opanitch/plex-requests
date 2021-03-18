@@ -52,7 +52,7 @@ const Logo = ({ classes, id }) => {
 
 Logo.propTypes = {
   classes: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 };
 
 export default Logo;

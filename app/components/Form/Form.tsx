@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import ReactDOM from 'react-dom';
 
-import Button from '../Button/Button.jsx';
-import FormTitle from '../Form/FormTitle.jsx';
-import TextInput from '../Input/TextInput.jsx';
+import { Button, Header, TextInput } from 'Atoms';
 
 const Form = ({ className, onSubmit, title }) => {
   return (
@@ -14,7 +11,7 @@ const Form = ({ className, onSubmit, title }) => {
       onSubmit={onSubmit}
       method="POST"
     >
-      <FormTitle text={title} />
+      <Header className="pr-form-title" headerLevel={3} title={title} />
       <div className="pr-requestform-inputs">
         <TextInput
           id="movie_title"
@@ -47,7 +44,7 @@ const Form = ({ className, onSubmit, title }) => {
 Form.propTypes = {
   className: PropTypes.string,
   onSubmit: PropTypes.func,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Form;

@@ -1,19 +1,23 @@
 import React, { FunctionComponent } from 'react';
 import { connect } from 'react-redux';
 
+import Footer from './containers/Footer/Footer';
 import Header from './containers/Header/Header';
-import RequestList from './containers/Request/RequestList';
-// import RequestForm from '../containers/Request/RequestForm';
 import LibraryList from './containers/Library/LibraryList';
+// import RequestForm from '../containers/Request/RequestForm';
+import RequestList from './containers/Request/RequestList';
 
 export const App: FunctionComponent<DivType> = ({ className }) => {
   return (
-    <div className="plex-request">
+    <>
       <Header />
-      <RequestList title="Request List" />
-      {/* <RequestForm title="Request Form" /> */}
-      <LibraryList title="Plex List" />
-    </div>
+      <div>
+        <RequestList title="Request List" />
+        {/* <RequestForm title="Request Form" /> */}
+        <LibraryList title="Plex List" />
+      </div>
+      <Footer />
+    </>
   );
 };
 
