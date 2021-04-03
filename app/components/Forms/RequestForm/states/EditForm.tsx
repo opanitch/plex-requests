@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 // import ReCAPTCHA from 'react-google-recaptcha';
+import classNames from 'classnames';
 
 import * as REGEX_NAMES from 'CONSTANTS/regex';
 // import { GOOGLE_RECAPTCHA_KEY } from 'API/data/contact/constants';
@@ -29,7 +30,7 @@ const EditRequestForm: FunctionComponent<
 
   return (
     <Form
-      className={parentClasses}
+      className={classNames('pr-requestform', parentClasses)}
       id={id}
       onChange={(event: FormEvent<HTMLFormElement>) => {
         // const updatedInput = event.target as FormInputsType;
@@ -47,61 +48,37 @@ const EditRequestForm: FunctionComponent<
         <>
           {title && <FormHeader title={title} />}
           <FormBody
-            className="mt-3"
-            description={`{{@ cms.contact.form.description @}}`}
+            className="pr-requestform-body"
+            description="If the Plex Library is missing something, in your opinion, you may request it below."
           >
-            <div className="flex flex-col mb-2 md:flex-row md:justify-between">
+            <div className="pr-form-body-container pr-requestform-body-basic">
               <TextInput
-                className="w-full mb-2 md:w-1/2 md:pr-1"
-                errorText="{{@ cms.contact.form.inputs.first-name.error @}}"
-                id="firstName"
-                labelText="{{@ cms.contact.form.inputs.first-name.label @}}"
-                placeholder="{{@ cms.contact.form.inputs.first-name.placeholder @}}"
+                className="pr-requestform-input"
+                errorText="Entry is invalid or email does not match accepted users"
+                id="requestEmail"
+                labelText="Plex User Email"
+                placeholder="example@email.com"
                 required={true}
-                regex={REGEX_NAMES.NAME}
-                title="{{@ cms.contact.form.inputs.first-name.validation @}}"
-                type="text"
-              />
-              <TextInput
-                className="w-full mb-2 md:w-1/2 md:pl-1"
-                errorText="{{@ cms.contact.form.inputs.last-name.error @}}"
-                id="lastName"
-                labelText="{{@ cms.contact.form.inputs.last-name.label @}}"
-                placeholder="{{@ cms.contact.form.inputs.last-name.placeholder @}}"
-                required={true}
-                regex={REGEX_NAMES.NAME}
-                title="{{@ cms.contact.form.inputs.last-name.validation @}}"
-                type="text"
-              />
-            </div>
-            <div className="flex flex-col mb-2 md:flex-row md:justify-between md:items-start">
-              <TextInput
-                className="w-full mb-2 md:w-1/2 md:pr-1"
-                errorText="{{@ cms.contact.form.inputs.email.error @}}"
-                id="emailAddress"
-                labelText="{{@ cms.contact.form.inputs.email.label @}}"
-                placeholder="{{@ cms.contact.form.inputs.email.placeholder @}}"
                 regex={REGEX_NAMES.EMAIL}
-                required={true}
-                title="{{@ cms.contact.form.inputs.email.validation @}}"
+                title="Please enter a valid email address"
                 type="email"
               />
               <TextInput
-                className="w-full mb-2 md:w-1/2 md:pl-1"
-                errorText="{{@ cms.contact.form.inputs.phone-number.error @}}"
-                id="phoneNumber"
-                labelText="{{@ cms.contact.form.inputs.phone-number.label @}}"
-                placeholder="{{@ cms.contact.form.inputs.phone-number.placeholder @}}"
-                regex={REGEX_NAMES.PHONE}
-                required={false}
-                title="{{@ cms.contact.form.inputs.phone-number.validation @}}"
-                type="tel"
+                className="pr-requestform-input"
+                errorText="Please enter a valid title, a-Z,0-9 chars only"
+                id="requestTitle"
+                labelText="Request Title"
+                placeholder="Pulp Fiction"
+                required={true}
+                regex={REGEX_NAMES.NAME}
+                title="Please enter a valid title, a-Z,0-9 chars only"
+                type="text"
               />
             </div>
           </FormBody>
-          <FormFooter>
-            <div className="flex items-start justify-start w-2/3 overflow-x-hidden">
-              {/* <ReCAPTCHA
+          <FormFooter className="pr-requestform-actions">
+            {/* <div className="flex items-start justify-start w-2/3 overflow-x-hidden"> */}
+            {/* <ReCAPTCHA
                 onChange={(value) => {
                   setRecaptcha(!!value);
                 }}
@@ -110,14 +87,17 @@ const EditRequestForm: FunctionComponent<
                 size="normal"
                 theme="dark"
               /> */}
-            </div>
-            <div className="flex items-center justify-end flex-1 sm:justify-center md:justify-end lg:justify-center">
-              <Button
-                buttonTheme={ButtonTheme.PRIMARY}
-                disabled={!canSubmit}
-                type="submit"
-              >{`{{@ cms.site.common.submit @}}`}</Button>
-            </div>
+            {/* </div>
+            <div className="flex items-center justify-end flex-1 sm:justify-center md:justify-end lg:justify-center"> */}
+            <Button
+              buttonTheme={ButtonTheme.PRIMARY}
+              className="pr-requestform-submit"
+              disabled={!canSubmit}
+              type="submit"
+            >
+              Submit
+            </Button>
+            {/* </div> */}
           </FormFooter>
         </>
       )}

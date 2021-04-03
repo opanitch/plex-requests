@@ -5,8 +5,8 @@
 
 /* Style Reset */
 @import './base/reset.scss';
-/* @import "./base/fonts.scss";
-@import "./base/global.scss"; */
+/* @import "./base/fonts.scss"; */
+@import './base/global.scss';
 @import './base/branding.scss';
 
 /* Atoms styles */
@@ -27,3 +27,4 @@
 /* Container styles */
 @import '../containers/Header/Header.scss';
 @import '../containers/Library/LibraryList.scss';
+@import '../containers/Request/RequestContainer.scss';

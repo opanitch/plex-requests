@@ -32,10 +32,10 @@ const TextInput: FunctionComponent<InputProps> = ({
   return (
     <div
       className={classnames(
-        'flex',
+        'pr-input-container',
         {
-          ['flex-row']: labelPosition === LabelPosition.LEFT,
-          ['flex-col']: labelPosition === LabelPosition.TOP_LEFT,
+          ['row']: labelPosition === LabelPosition.LEFT,
+          ['col']: labelPosition === LabelPosition.TOP_LEFT,
         },
         parentClasses
       )}
@@ -43,7 +43,7 @@ const TextInput: FunctionComponent<InputProps> = ({
       {labelText && (
         <Label
           className={classnames({
-            ['mb-1']: labelPosition === LabelPosition.TOP_LEFT,
+            ['top-left']: labelPosition === LabelPosition.TOP_LEFT,
           })}
           htmlFor={id}
           required={required}
@@ -51,7 +51,7 @@ const TextInput: FunctionComponent<InputProps> = ({
         />
       )}
       <input
-        className="p-2 border-gray-300 border-1"
+        className="pr-input"
         disabled={disabled}
         id={id}
         // Only validate field onBlur
@@ -66,7 +66,7 @@ const TextInput: FunctionComponent<InputProps> = ({
       />
       {errorText && (
         <p
-          className={classnames('ml-1 pt-1 text-scale-n2 text-red-700', {
+          className={classnames('pr-input-error', {
             ['visually-hidden']: !error,
           })}
         >

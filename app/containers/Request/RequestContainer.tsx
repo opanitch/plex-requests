@@ -34,11 +34,19 @@ const RequestContainer: FunctionComponent<DivType> = ({ children, title }) => {
   };
 
   return (
-    <FullWidthContainer className="pr-requestlist-container">
+    <FullWidthContainer className="pr-request-container">
       {({ ChildContainer }) => (
         <ChildContainer>
-          <RequestForm id="request-form" status="READY" />
-          <RequestList />
+          <Card>
+            <RequestForm
+              id="request-form"
+              status="READY"
+              title="Plex Request Form"
+            />
+          </Card>
+          <Card>
+            <RequestList />
+          </Card>
         </ChildContainer>
       )}
     </FullWidthContainer>

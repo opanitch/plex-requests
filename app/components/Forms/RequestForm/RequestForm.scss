@@ -1,30 +1,41 @@
 .pr-requestform {
+  &-container {
+    width: 100%;
+    padding: 20px;
+  }
 
-    &-container {
-        width: 100%;
-        padding: 20px;
+  &-title {
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  &-body {
+    margin-top: 1rem;
+
+    &-basic {
     }
 
-    &-title {
-        margin-bottom: 10px;
-        text-align: left;
+    &-advanced {
     }
+  }
 
-    &-inputs {
-        margin-top: 10px;
-        padding: 35px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: rgba(102, 102, 102, 0.5);
-    }
+  &-input {
+    width: 100%;
+    // margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(102, 102, 102, 0.5);
 
-    &-actions {
-        flex: 3;
-        display: flex;
-        justify-content: flex-end;
+    @media (min-width: 728px) {
+      width: 50%;
+      // padding-right: 0.25rem;
     }
+  }
 
-    &-submit {
-    }
+  &-actions {
+    flex: 3;
+    justify-content: flex-end;
+  }
+
+  &-submit {
+  }
 }

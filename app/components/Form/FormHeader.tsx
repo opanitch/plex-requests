@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classnames from 'classnames';
 
 import { Header } from 'Atoms';
 
@@ -8,8 +9,8 @@ const FormHeader: FunctionComponent<FormHeaderProps> = ({
   className: parentClasses,
   title,
 }) => (
-  <div className={parentClasses}>
-    <Header className="mb-1" headerLevel={2} title={title} />
+  <div className={classnames('pr-form-title', parentClasses)}>
+    <Header headerLevel={2} title={title} />
   </div>
 );
 

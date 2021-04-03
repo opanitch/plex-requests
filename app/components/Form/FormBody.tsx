@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classnames from 'classnames';
 
 import { FormBodyProps } from './types';
 
@@ -9,8 +10,8 @@ const FormBody: FunctionComponent<FormBodyProps> = ({
   ...props
 }) => {
   return (
-    <div className={parentClasses} {...props}>
-      {description && <p className="mb-1 font-nugo">{description}</p>}
+    <div className={classnames('pr-form-body', parentClasses)} {...props}>
+      {description && <p className="pr-form-body-description">{description}</p>}
       {children}
     </div>
   );

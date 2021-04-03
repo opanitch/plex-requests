@@ -8,13 +8,7 @@ const FormFooter: FunctionComponent<FormSection> = ({
   className: parentClasses,
   ...props
 }) => (
-  <div
-    className={classnames(
-      'mt-3 flex flex-row items-center justify-between',
-      parentClasses
-    )}
-    {...props}
-  >
+  <div className={classnames('pr-form-footer', parentClasses)} {...props}>
     {children}
   </div>
 );
