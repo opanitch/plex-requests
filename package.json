@@ -7,7 +7,7 @@
   },
   "description": "Front-end UI to allow users to submit information to a searchable, sortable database with checks for duplicates",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config ./webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "cleaninstall": "rm -rf node_modules/ && rm package-lock.json && npm cache clean --force && npm i",
     "start": "cross-env NODE_ENV=development webpack serve --config ./webpack.config.js",
     "update": "npm ci",
