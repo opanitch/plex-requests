@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import { Card, Header } from 'Atoms';
+import { Header } from 'Atoms';
 
-import { FullWidthContainer, Table } from 'Components';
+import { Table } from 'Components';
 
 const RequestList: FunctionComponent<DivType> = ({ children, title }) => {
   const testData = {
@@ -33,25 +33,19 @@ const RequestList: FunctionComponent<DivType> = ({ children, title }) => {
   };
 
   return (
-    <FullWidthContainer className="pr-requestlist-container">
-      {({ ChildContainer }) => (
-        <ChildContainer>
-          <Card>
-            <Header
-              className="pr-requestlist-title"
-              headerLevel={2}
-              title={`${title}`}
-            />
-            {/* <Table
+    <>
+      <Header
+        className="pr-requestlist-title"
+        headerLevel={2}
+        title={`${title}`}
+      />
+      {/* <Table
         className="pr-requestlist-table"
         content={testData.content}
         data={testData.data}
         columns={testData.columns}
       /> */}
-          </Card>
-        </ChildContainer>
-      )}
-    </FullWidthContainer>
+    </>
   );
 };
 

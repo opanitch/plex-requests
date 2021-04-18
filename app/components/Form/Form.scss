@@ -4,7 +4,36 @@
   }
 
   &-title {
-    font-size: $font-size-h4;
-    color: $white;
+    margin-bottom: 0.25rem;
+
+    & > h2 {
+      color: $white;
+      font-size: $font-size-h4;
+    }
+  }
+
+  &-body {
+    &-container {
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 728px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &-description {
+      margin-bottom: 0.5rem;
+      font-family: Nugo Sans Light;
+    }
+  }
+
+  &-footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }

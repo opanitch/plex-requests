@@ -16,15 +16,12 @@ const Label: FunctionComponent<LabelProps> = ({
 }) => {
   return (
     <label
-      className={classnames(
-        'font-exon text-scale-1 md:text-scale-2 tracking-wide',
-        parentClasses
-      )}
+      className={classnames('pr-input-label', parentClasses)}
       htmlFor={htmlFor}
       {...props}
     >
       {text}
-      {required && <span className="text-red-700">*</span>}
+      {required && <span className="pr-input-label--required">*</span>}
     </label>
   );
 };
