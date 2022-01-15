@@ -36,30 +36,31 @@
   },
   "plugins": ["react", "react-hooks", "jest", "jest-formatting", "@typescript-eslint", "notice"],
   "rules": {
-    "@typescript-eslint/camelcase": "off",
+    // Require explicit return type on functions and class methods
     "@typescript-eslint/explicit-function-return-type": ["error", {
       "allowExpressions": true
     }],
-    "@typescript-eslint/explicit-member-accessibility": "off",
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/jsx-no-lambda": "off",
     "@typescript-eslint/no-explicit-any": "off", // TODO: remove later
-    "@typescript-eslint/no-submodule-imports": "off",
     "@typescript-eslint/no-unsafe-argument": "off", // TODO: remove later
     "@typescript-eslint/no-unused-expressions": "warn",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/prefer-interface": "off",
+    "@typescript-eslint/prefer-interface": "warn",
+    // Require parentheses around arrow function arguments
     "arrow-parens": ["error", "always"],
+    // Require braces around blocks
     "curly": ["error", "all"],
+    // Require type-safe equality operators
     "eqeqeq": ["error", "smart"],
+    // Require blank line before certain statements (ESLint rules don't work with Jest)
     "jest-formatting/padding-all-around": "error",
+    // Maximum line length for comments except trailing comments
     "max-len": ["error", {
       "code": 200,
       "comments": 100,
       "ignoreTrailingComments": true
     }],
-    "no-console": "off",
+    "no-console": "warn",
     "no-useless-return": "error",
+    // Require blank line before certain statements
     "padding-line-between-statements": [
       "error",
       {
@@ -104,39 +105,28 @@
       }
     ],
     "prefer-const": 2,
-    "prefer-spread": 0,
-    "prettier/prettier": ["error"],
+    "prefer-spread": 1,
+    // Omit boolean prop value when set to true
     "react/jsx-boolean-value": ["error", "never"],
+    // Disallow unnecessary curly braces in JSX
     "react/jsx-curly-brace-presence": ["error", "never"],
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [".js", ".ts", ".tsx"]
-      }
-    ],
+    // Require PascalCase for user-defined JSX components
     "react/jsx-pascal-case": "error",
+    // Require props to be sorted
     "react/jsx-sort-props": ["error", {
       "callbacksLast": true,
       "shorthandFirst": true
     }],
-    "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
+    // Require self closing tags in JSX/HTML
     "react/self-closing-comp": ["error", {
       "component": true,
       "html": true
     }],
     "react-hooks/exhaustive-deps": "warn",
+    // Enforce rules of hooks
     "react-hooks/rules-of-hooks": "error",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": false,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-      }
-    ],
-    "sort-keys": "off",
+    // Require a whitespace at the beginning of a comment
     "spaced-comment": ["error", "always"]
   },
   "settings": {
