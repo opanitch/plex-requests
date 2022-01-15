@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Production
+build/
+dist/
+assets/
+
+# TypeScript
+tsbuildinfo/
+
+# Jest
+# src/test/unit/coverage/
+# Cypress
+# src/test/e2e/downloads/
+# src/test/e2e/screenshots/
+# src/test/e2e/videos/
+
+# Assets
+*.svg
+*.png
+*.ico
+*.ttf
+
+# Ignore files (Prettier has trouble parsing files without extension)
+.eslintignore
+.gitignore
+.prettierignore
+.stylelintignore
+
+# RC files (Prettier has trouble parsing files without extension)
+.npmrc
+.nvmrc
+
+# webpack
+webpack/
+
+# macOS
+.DS_Store

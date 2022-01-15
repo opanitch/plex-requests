@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Production
+build/
+dist/
+assets/
+
+# TypeScript
+tsbuildinfo/
+
+# Jest (ESLint rules don't agree with how these configs are written)
+# jest.config.js
+# src/test/unit/coverage/
+# src/test/unit/mocks/
+# Cypress
+# src/test/e2e/downloads/
+
+# webpack (ESLint rules don't agree with how these configs are written)
+webpack/
+webpack.config.js

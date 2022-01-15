@@ -2,20 +2,19 @@ const postCSSPlugins = require('./postcss.config');
 
 module.exports = [
   {
-    test: /\.(js|ts)x?$/,
+    test: /\.ts(x)?$/,
     exclude: /node_modules/,
     use: [
-      'babel-loader',
       {
-        loader: 'eslint-loader',
+        loader: "ts-loader",
         options: {
-          fix: true,
+          transpileOnly: true, // Speed up compilation in development mode
         },
       },
     ],
   },
   {
-    test: /\.(s?css)$/,
+    test: /\.(s)?css$/,
     exclude: /node_modules/,
     use: [
       'style-loader',
@@ -28,6 +27,11 @@ module.exports = [
         },
       },
     ],
+  },
+  // .svg files to be handled by @svgr/webpack
+  {
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
   },
   {
     test: /\.(eot|ttf|woff|woff2)$/,
