@@ -23,7 +23,7 @@
     /* Strict Type-Checking Options */
     // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
     "strict": true                            /* Enable all strict type-checking options. */,
-    // "noImplicitAny": true,                 /* Raise error on expressions and declarations with an implied 'any' type. */
+    "noImplicitAny": false,                 /* Raise error on expressions and declarations with an implied 'any' type. TODO: enable later */
     // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
     // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
     // "strictNullChecks": true,              /* Enable strict null checks. */

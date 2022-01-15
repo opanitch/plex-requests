@@ -1,14 +1,18 @@
 {
   "env": {
-    "amd": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:compat/recommended",
-    "plugin:prettier/recommended"
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jest-formatting/recommended",
+    "plugin:react/recommended",
+    "prettier"
   ],
   "overrides": [
     {
@@ -16,47 +20,111 @@
         "es6": true,
         "node": true
       },
-      "files": ["*.js", "build/**", "webpack/**"]
+      "files": ["*.js", "build/**", "webpack/**"],
+      "rules": {
+        "jest/expect-expect": "off"
+      }
     }
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["html", "prettier", "react", "@typescript-eslint", "react-hooks"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jest", "jest-formatting", "@typescript-eslint", "notice"],
   "rules": {
     "@typescript-eslint/camelcase": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-function-return-type": ["error", {
+      "allowExpressions": true
+    }],
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/jsx-no-lambda": "off",
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "off", // TODO: remove later
     "@typescript-eslint/no-submodule-imports": "off",
-    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-unsafe-argument": "off", // TODO: remove later
     "@typescript-eslint/no-unused-expressions": "warn",
-    "@typescript-eslint/no-use-before-define": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/prefer-interface": "off",
+    "arrow-parens": ["error", "always"],
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "smart"],
+    "jest-formatting/padding-all-around": "error",
+    "max-len": ["error", {
+      "code": 200,
+      "comments": 100,
+      "ignoreTrailingComments": true
+    }],
     "no-console": "off",
     "no-useless-return": "error",
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "function"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "class"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "export"
+      },
       {
         "blankLine": "any",
-        "prev": ["const", "let", "var"],
-        "next": ["const", "let", "var"]
+        "prev": "export",
+        "next": "export"
       },
-      { "blankLine": "always", "prev": "*", "next": "return" }
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "break"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "continue"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "throw"
+      }
     ],
     "prefer-const": 2,
     "prefer-spread": 0,
     "prettier/prettier": ["error"],
+    "react/jsx-boolean-value": ["error", "never"],
+    "react/jsx-curly-brace-presence": ["error", "never"],
     "react/jsx-filename-extension": [
       "error",
       {
         "extensions": [".js", ".ts", ".tsx"]
       }
     ],
+    "react/jsx-pascal-case": "error",
+    "react/jsx-sort-props": ["error", {
+      "callbacksLast": true,
+      "shorthandFirst": true
+    }],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "sort-imports": [
@@ -68,6 +136,12 @@
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
       }
     ],
-    "sort-keys": "off"
+    "sort-keys": "off",
+    "spaced-comment": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

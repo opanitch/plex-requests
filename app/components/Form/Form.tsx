@@ -1,50 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
-import { Button, Header, TextInput } from 'Atoms';
+import FormBody from './FormBody';
+import FormFooter from './FormFooter';
+import FormHeader from './FormHeader';
+// import LoadingView from './FormLoading';
+import { FormConfigType } from './types';
 
-const Form = ({ className, onSubmit, title }) => {
-  return (
-    <form
-      id="article-form"
-      className={className}
-      onSubmit={onSubmit}
-      method="POST"
-    >
-      <Header className="pr-form-title" headerLevel={3} title={title} />
-      <div className="pr-requestform-inputs">
-        <TextInput
-          id="movie_title"
-          label="movie_title"
-          isRequired="false"
-          text="Movie Title"
-          type="text"
-          value="Enter Movie Title"
-        />
-        <TextInput
-          id="plex_user"
-          label="plex_user"
-          isRequired="false"
-          text="What is your Plex username?"
-          type="text"
-          value="Plex User"
-        />
-        <div className="pr-requestform-actions">
-          <Button
-            type="submit"
-            className="pr-button--primary pr-requestform-submit"
-            text="Submit Request"
-          />
-        </div>
-      </div>
-    </form>
-  );
-};
-
-Form.propTypes = {
-  className: PropTypes.string,
-  onSubmit: PropTypes.func,
-  title: PropTypes.string.isRequired,
-};
+const Form: FunctionComponent<FormConfigType> = ({
+  children,
+  className: parentClasses,
+  id,
+  onChange,
+  onSubmit = (event) => {
+    // This here to catch any forms without submission handlers
+    console.log('DEFAULT SUBMIT');
+    console.log(event);
+  },
+}) => (
+  <form
+    className={parentClasses}
+    id={id}
+    onChange={onChange}
+    onSubmit={(event) => {
+      // prevent all default form submit functions
+      event.preventDefault();
+      onSubmit(event);
+    }}
+  >
+    {children && children({ FormBody, FormFooter, FormHeader })}
+  </form>
+);
 
 export default Form;

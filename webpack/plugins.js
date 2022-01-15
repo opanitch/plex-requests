@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const VirtualModulesPlugin = require('webpack-virtual-modules');
-const WebpackMd5Hash = require('webpack-md5-hash');
+const WebpackBar = require("webpackbar");
 
 const getBrowserRegexp = require('./browser-regexp');
 const { BROWSER_TYPES } = require('../build/globals/environments');
@@ -22,11 +23,17 @@ module.exports = (env) => [
    *
    * See `Options and Defaults` for information
    */
-  new CleanWebpackPlugin(),
+  // Clean webpack output directory
+  new CleanWebpackPlugin({
+    verbose: true,
+  }),
   // Establishes environment var for things like redux
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(env),
   }),
+  // In development mode, fork TypeScript checking to run in another thread and not block main
+  // transpilation
+  new ForkTsCheckerWebpackPlugin(),
   new webpack.ProvidePlugin({
     Buffer: ['buffer', 'Buffer'],
   }),
@@ -63,6 +70,11 @@ module.exports = (env) => [
   new VirtualModulesPlugin({
     SUPPORTED_MOBILE_BROWSERS: getBrowserRegexp(BROWSER_TYPES.MOBILE),
     SUPPORTED_WEB_BROWSERS: getBrowserRegexp(BROWSER_TYPES.WEB),
+  }),
+  // Build progress bar
+  new WebpackBar({
+      name: "plex-requests [dev]",
+      color: "#e5a00d",
   }),
   // new WebpackMd5Hash(),
 ];
