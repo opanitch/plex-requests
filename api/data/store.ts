@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-
+import { Epic } from 'redux-observable';
 import { middleware, rootEpic } from './epics';
 import rootReducer from './reducers';
+import { Action } from './types';
 
 const ENV = process.env.NODE_ENV;
 const isProduction = ENV === 'production';
@@ -13,5 +14,4 @@ export const store = configureStore({
   reducer: rootReducer,
 });
 
-/* eslint-disable-next-line */
-middleware.run(rootEpic);
+middleware.run(rootEpic as unknown as Epic<Action, Action, void, any>);

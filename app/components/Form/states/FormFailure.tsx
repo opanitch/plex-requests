@@ -1,14 +1,10 @@
-import React, { FunctionComponent } from 'react';
-
-import * as STATUSES from 'CONSTANTS/status';
+// import * as STATUSES from 'CONSTANTS/status';
 // import { createFormStatusEvent } from 'HOOKS/forms';
-
 import Button, { ButtonTheme } from 'Atoms/Button/Button';
-
+import React, { FunctionComponent } from 'react';
 import FormBody from '../FormBody';
 import FormFooter from '../FormFooter';
 import FormHeader from '../FormHeader';
-
 import { FormProps, FormStateProps } from '../types';
 
 const FormFailure: FunctionComponent<FormStateProps<FormProps>> = ({

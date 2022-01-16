@@ -1,7 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-
 import * as STATUSES from 'CONSTANTS/status';
-
 import { fetchComplete, fetchStart } from './actions';
 // import { DEFAULT } from './constants';
 import { RequestListState } from './types';
@@ -20,7 +18,7 @@ const requestListReducer = createReducer(initialState, (builder) =>
       ...action.payload,
       status: !!action.error,
     }))
-    .addCase(fetchStart, (state, action) => ({
+    .addCase(fetchStart, (state) => ({
       ...state,
       status: STATUSES.LOADING,
     }))

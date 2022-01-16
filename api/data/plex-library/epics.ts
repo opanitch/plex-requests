@@ -1,11 +1,8 @@
+import { PlexAPIClient } from 'plex-wrapper';
 import { Epic } from 'redux-observable';
 import { filter, map, tap } from 'rxjs/operators';
-
-import { PlexAPIClient } from 'plex-wrapper';
-
-import { waitForPromise } from '../epics';
+// import { waitForPromise } from '../epics';
 import { Action, StoreShape } from '../types';
-
 import { fetchComplete, fetchStart } from './actions';
 
 const client = new PlexAPIClient('plexRequest', 'opanitch', '8sQBjsxocNGn', {
@@ -24,7 +21,7 @@ client.getServers().then((result) => {
  * @param {Observable} state$ Stream of state changes
  * @returns {Observable} Stream of actions to be dispatched
  */
-export const fetch: Epic<Action, Action, StoreShape> = (action$, state$) =>
+export const fetch: Epic<Action, Action, StoreShape> = (action$) =>
   action$.pipe(
     filter(fetchStart.match),
     tap(() => {

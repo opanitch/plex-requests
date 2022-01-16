@@ -1,15 +1,9 @@
-import React, { FunctionComponent, useState } from 'react';
 import classnames from 'classnames';
-
 import { getRegExp } from 'Components/Form/form-helpers';
-
+import React, { FunctionComponent, useState } from 'react';
+import { LabelPosition } from './constants';
 import Label from './Label';
 import { InputProps } from './types';
-
-export enum LabelPosition {
-  LEFT = 'LEFT',
-  TOP_LEFT = 'TOP_LEFT',
-}
 
 const TextInput: FunctionComponent<InputProps> = ({
   className: parentClasses,

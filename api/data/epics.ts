@@ -1,10 +1,8 @@
-import { Epic, combineEpics, createEpicMiddleware } from 'redux-observable';
-import { BehaviorSubject, OperatorFunction, from, of, pipe } from 'rxjs';
+import { combineEpics, createEpicMiddleware, Epic } from 'redux-observable';
+import { BehaviorSubject, from, of, OperatorFunction, pipe } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-
-import { Action, StoreShape } from './types';
-
 import * as plexLibraryEpics from './plex-library/epics';
+import { Action, StoreShape } from './types';
 
 const epics = [...Object.values(plexLibraryEpics)] as Epic<
   Action,

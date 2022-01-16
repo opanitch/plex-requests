@@ -13,7 +13,7 @@ module.exports = {
   stream: require.resolve('stream-browserify'),
   timers: false,
   tls: false,
-  url: false,
-  util: false,
+  url: require.resolve('url'),
+  util: require.resolve('util'),
   zlib: false,
 };
