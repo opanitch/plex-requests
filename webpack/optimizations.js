@@ -1,11 +1,13 @@
+const { Environments } = require('./constants');
+
 // Documentation: https://webpack.js.org/configuration/optimization/
 module.exports = (env) => ({
-  chunkIds: env === 'production' ? 'total-size' : 'named',
-  emitOnErrors: env === 'development',
-  mangleExports: env === 'production' ? 'size' : false,
-  minimize: env === 'production',
+  chunkIds: env === Environments.PROD ? 'total-size' : 'named',
+  emitOnErrors: env === Environments.DEV,
+  mangleExports: env === Environments.PROD ? 'size' : false,
+  minimize: env === Environments.PROD,
   minimizer: [],
-  moduleIds: env === 'production' ? 'size' : 'named',
+  moduleIds: env === Environments.PROD ? 'size' : 'named',
   nodeEnv: env,
   splitChunks: {
     minChunks: 2,
