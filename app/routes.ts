@@ -3,15 +3,15 @@
 // import HomeView from 'Pages/HomeView';
 // import PageNotFoundView from 'Pages/error/PageNotFoundView';
 
-// let routes = [
-//   {
-//     pathKey: 'Home',
-//     exact: true,
-//     component: HomeView,
-//     layout: Landing,
-//     contentKey: 'Dashboard.PageContent',
-//   },
-// ];
+let routes = [
+  {
+    pathKey: 'Home',
+    exact: true,
+    // component: HomeView,/
+    // layout: Landing,
+    contentKey: 'Dashboard.PageContent',
+  },
+];
 
 // routes = [
 //   ...routes,
@@ -22,4 +22,4 @@
 //   },
 // ];
 
-// export default routes;
+export default routes;

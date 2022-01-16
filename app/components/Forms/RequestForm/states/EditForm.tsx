@@ -1,23 +1,20 @@
-import React, {
-  FormEvent,
-  FunctionComponent,
-  RefObject,
-  useState,
-} from 'react';
-// import ReCAPTCHA from 'react-google-recaptcha';
-import classNames from 'classnames';
-
-import * as REGEX_NAMES from 'CONSTANTS/regex';
 // import { GOOGLE_RECAPTCHA_KEY } from 'API/data/contact/constants';
 // import { sendEmail } from 'API/data/contact/send-email';
 // import { SendEmailAction } from 'API/data/contact/types';
-
 import { TextInput } from 'Atoms';
 import Button, { ButtonTheme } from 'Atoms/Button/Button';
+// import ReCAPTCHA from 'react-google-recaptcha';
+import classNames from 'classnames';
 // import { FormInputsType, getFormValues } from 'Components/Form/form-helpers';
 import Form from 'Components/Form/Form';
 import { FormStateProps } from 'Components/Form/types';
-
+import * as REGEX_NAMES from 'CONSTANTS/regex';
+import React, {
+  FormEvent,
+  FunctionComponent,
+  // RefObject,
+  useState,
+} from 'react';
 import { RequestFormViewType } from '../types';
 
 const EditRequestForm: FunctionComponent<
@@ -33,13 +30,19 @@ const EditRequestForm: FunctionComponent<
       className={classNames('pr-requestform', parentClasses)}
       id={id}
       onChange={(event: FormEvent<HTMLFormElement>) => {
-        // const updatedInput = event.target as FormInputsType;
-        // const form = updatedInput.form;
+        const updatedInput = event.target;
+        const form = updatedInput;
+        setValidity(false);
+        setRecaptcha(false);
+        console.log(form);
+
         // // Set validity of the whole form
         // form && setValidity(form.checkValidity());
       }}
       onSubmit={(event: FormEvent<HTMLFormElement>) => {
         const form = event.target as HTMLFormElement;
+
+        console.log(form);
 
         // sendEmail(getFormValues(form) as SendEmailAction);
       }}

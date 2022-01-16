@@ -1,7 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-
 import * as STATUSES from 'CONSTANTS/status';
-
 import { fetchComplete, fetchStart } from './actions';
 // import { DEFAULT } from './constants';
 import { PlexLibraryState } from './types';
@@ -15,9 +13,9 @@ const plexLibraryReducer = createReducer(initialState, (builder) =>
   builder
     .addCase(fetchComplete, (state, action) => ({
       ...state,
-      endTime: action.payload.currentTime,
+      endTime: action.payload?.currentTime,
     }))
-    .addCase(fetchStart, (state, action) => ({
+    .addCase(fetchStart, (state) => ({
       ...state,
       status: STATUSES.LOADING,
     }))

@@ -1,12 +1,10 @@
-import React, { FunctionComponent } from 'react';
+// import partition from 'lodash/partition';
+import Header from 'Atoms/Header/Header';
 import classNames from 'classnames';
 // import get from 'lodash/get';
 // import find from 'lodash/find';
 import map from 'lodash/map';
-// import partition from 'lodash/partition';
-
-import Header from 'Atoms/Header/Header';
-
+import React, { FunctionComponent } from 'react';
 import TableBody from './TableBody';
 import TableFooter from './TableFooter';
 import TableHeader from './TableHeader';
@@ -52,16 +50,26 @@ export const renderCell = (cellData, index) => {
 };
 
 export const renderRow = ({ columns, rowData }) => {
-  const rowLength = columns.length;
-  const dataSplitNum = Math.ceil(rowData.length / rowLength);
+  const rowLength: number | undefined = columns.length;
+  const dataSplitNum = rowLength && Math.ceil(rowData.length / rowLength);
 
   // console.log(`row data ${rowData}`);
   // console.log(`row length ${rowLength}`);
   // console.log(`dataSplitNum ${dataSplitNum}`);
 
-  for (let i = 0; i < dataSplitNum; i++) {
-    return <tr>{map(rowData, (data) => renderCell(data, i))}</tr>;
+  if (!!dataSplitNum && dataSplitNum > 0) {
+    for (let i = 0; i < dataSplitNum; i++) {
+      return <tr>{map(rowData, (data) => renderCell(data, i))}</tr>;
+    }
+  } else {
+    return (
+      <tr>
+        <td>NO DATA</td>
+      </tr>
+    );
   }
+
+  return false;
 };
 
 const Table: FunctionComponent<TableType> = (props) => {

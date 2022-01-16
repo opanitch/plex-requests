@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { renderRow } from './Table';
+// import { renderRow } from './Table';
 
 type TfootType = JSX.IntrinsicElements['tfoot'] & {
   columns: any;
