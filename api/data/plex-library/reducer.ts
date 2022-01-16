@@ -13,7 +13,7 @@ const plexLibraryReducer = createReducer(initialState, (builder) =>
   builder
     .addCase(fetchComplete, (state, action) => ({
       ...state,
-      endTime: action.payload.currentTime,
+      endTime: action.payload?.currentTime,
     }))
     .addCase(fetchStart, (state) => ({
       ...state,
