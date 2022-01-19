@@ -4,7 +4,6 @@ import { FullWidthContainer, LibraryList } from 'Components';
 import Footer from 'Containers/Footer/Footer';
 import Header from 'Containers/Header/Header';
 import React, { FunctionComponent, useEffect } from 'react';
-import { connect } from 'react-redux';
 
 export const App: FunctionComponent<DivType> = () => {
   const {
@@ -60,4 +59,4 @@ export const App: FunctionComponent<DivType> = () => {
   );
 };
 
-export default connect((state) => ({ viewState: { ...state } }), {})(App);
+export default App;
