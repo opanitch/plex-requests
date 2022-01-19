@@ -1,0 +1,137 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jest-formatting/recommended",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "env": {
+        "es6": true,
+        "node": true
+      },
+      "files": ["*.js", "build/**", "webpack/**"],
+      "rules": {
+        "jest/expect-expect": "off"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "jest", "jest-formatting", "@typescript-eslint", "notice"],
+  "rules": {
+    // Require explicit return type on functions and class methods
+    "@typescript-eslint/explicit-function-return-type": ["error", {
+      "allowExpressions": true
+    }],
+    "@typescript-eslint/no-explicit-any": "off", // TODO: remove later
+    "@typescript-eslint/no-unsafe-argument": "off", // TODO: remove later
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/prefer-interface": "warn",
+    // Require parentheses around arrow function arguments
+    "arrow-parens": ["error", "always"],
+    // Require braces around blocks
+    "curly": ["error", "all"],
+    // Require type-safe equality operators
+    "eqeqeq": ["error", "smart"],
+    // Require blank line before certain statements (ESLint rules don't work with Jest)
+    "jest-formatting/padding-all-around": "error",
+    // Maximum line length for comments except trailing comments
+    "max-len": ["error", {
+      "code": 200,
+      "comments": 100,
+      "ignoreTrailingComments": true
+    }],
+    "no-console": "warn",
+    "no-useless-return": "error",
+    // Require blank line before certain statements
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "function"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "class"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "export"
+      },
+      {
+        "blankLine": "any",
+        "prev": "export",
+        "next": "export"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "break"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "continue"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "throw"
+      }
+    ],
+    "prefer-const": 2,
+    "prefer-spread": 1,
+    // Omit boolean prop value when set to true
+    "react/jsx-boolean-value": ["error", "never"],
+    // Disallow unnecessary curly braces in JSX
+    "react/jsx-curly-brace-presence": ["error", "never"],
+    // Require PascalCase for user-defined JSX components
+    "react/jsx-pascal-case": "error",
+    // Require props to be sorted
+    "react/jsx-sort-props": ["error", {
+      "callbacksLast": true,
+      "shorthandFirst": true
+    }],
+    "react/jsx-uses-vars": "error",
+    // Require self closing tags in JSX/HTML
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }],
+    "react-hooks/exhaustive-deps": "warn",
+    // Enforce rules of hooks
+    "react-hooks/rules-of-hooks": "error",
+    // Require a whitespace at the beginning of a comment
+    "spaced-comment": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

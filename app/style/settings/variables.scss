@@ -1,12 +1,40 @@
 // Colors
 $black: #000;
-$grey-dark: #282a2d;
-$gold: #e5a00d;
+$dark-grey-9: #040404;
+$dark-grey-8: #080809;
+$dark-grey-7: #0c0c0d;
+$dark-grey-6: #101012;
+$dark-grey-5: #141516;
+$dark-grey-4: #18191b;
+$dark-grey-3: #1c1d1f;
+$dark-grey-2: #202124;
+$dark-grey-1: #242528;
+$grey: #282a2d;
+$light-grey-1: #3d3f42;
+$light-grey-2: #525456;
+$light-grey-3: #68696c;
+$light-grey-4: #7e7f81;
+$light-grey-5: #939496;
+$light-grey-6: #a9a9ab;
+$light-grey-7: #bebfc0;
+$light-grey-8: #d4d4d5;
+$light-grey-9: #e9e9ea;
 $white: #fff;
+
+$gamboge: #e5a00d;
+$navajo-white: #ffddaa;
+$rust: #aa2200;
+$pacific-blue: #0088cc;
 
 // Font Styles
 // Family
-$font-family-base: "Helvetica", "Arial", san-serif;
+$font-family-base: 'Helvetica', 'Arial', san-serif;
+
+// Color
+$font-color-base: $black;
+$font-color-primary: $gamboge;
+$font-color-secondary: $navajo-white;
+$font-color-link: $pacific-blue;
 
 // Size
 $font-size-base: 16px;
@@ -14,7 +42,10 @@ $font-size-h1: 2.125em;
 $font-size-h2: 2em;
 $font-size-h3: 1.815em;
 $font-size-h4: 1.5em;
+$font-size-h5: 1.25em;
 $font-size-body: 1em;
 $font-size-body--small: 0.825em;
 
 // Icons
+$icon-base-width: 24px;
+$icon-base-height: 24px;

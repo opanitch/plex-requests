@@ -1,0 +1,42 @@
+.pr-input {
+  padding: 0.5rem;
+  border-color: rgb(209, 213, 219);
+  border-width: 1px;
+
+  &-container {
+    display: flex;
+
+    &.col {
+      flex-direction: column;
+    }
+
+    &.row {
+      flex-direction: row;
+    }
+  }
+
+  &-label {
+    font-family: Exon;
+    font-size: 1.125rem;
+    letter-spacing: 0.025rem;
+
+    @media (min-width: 728px) {
+      font-size: 1.25rem;
+    }
+
+    &--required {
+      color: rgb(185, 28, 28);
+    }
+
+    &.top-left {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &-error {
+    margin-left: 0.25rem;
+    padding-top: 0.25rem;
+    color: rgb(185, 28, 28);
+    font-size: 0.75rem;
+  }
+}

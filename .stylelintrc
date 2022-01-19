@@ -1,0 +1,41 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "prettier",
+    "stylelint-config-prettier"
+  ],
+  "rules": {
+    "at-rule-name-case": "lower",
+    "color-hex-case": "lower",
+    // Require long notation for hex colors
+    "color-hex-length": "long",
+    // Require whitespace padding in comments
+    "comment-whitespace-inside": "always",
+    // Require quotes around font family names where needed
+    "font-family-name-quotes": "always-where-required",
+    // Require generic family in list of font family names
+    "font-family-no-missing-generic-family-keyword": true,
+    "function-name-case": "lower",
+    "media-feature-name-case": "lower",
+    // Disallow double slash comments
+    "no-invalid-double-slash-comments": true,
+    // Require a leading zero for fractional numbers less than 1
+    "number-leading-zero": "always",
+    // Disallow trailing zeros in numbers
+    "number-no-trailing-zeros": true,
+    // Require lowercase property/values
+    "property-case": "lower",
+    // Require an empty line before rules except first nested rule or rules that follow comments
+    "rule-empty-line-before": [
+        "always",
+        {
+          "ignore": ["first-nested", "after-comment"]
+        }
+    ],
+    "selector-pseudo-class-case": "lower",
+    "selector-pseudo-element-case": "lower",
+    "selector-type-case": "lower",
+    "unit-case": "lower",
+    "value-keyword-case": "lower"
+  }
+}

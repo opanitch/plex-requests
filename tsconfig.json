@@ -1,0 +1,83 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "allowJs": false,                         /* Allow javascript files to be compiled. */
+    "allowUnreachableCode": false,
+    "checkJs": false,                         /* Report errors in .js files. */
+    "composite": false,                       /* Enable project compilation */
+    "declaration": true,                      /* Generates corresponding '.d.ts' file. */
+    "declarationMap": true,                   /* Generates a sourcemap for each corresponding '.d.ts' file. */
+    // "downlevelIteration": true,            /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */
+    "forceConsistentCasingInFileNames": true, /* */
+    "importHelpers": true,                    /* Import emit helpers from 'tslib'. */
+    "incremental": true,                      /* Allow incremental compilation */
+    "isolatedModules": true,                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */
+    "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
+    // "lib": [],                             /* Specify library files to be included in the compilation. */
+    "module": "ES2020",                       /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
+    "noEmit": false,                          /* Do not emit outputs. */
+    // "outDir": "./",                        /* Redirect output structure to the directory. */
+    // "outFile": "./",                       /* Concatenate and emit output to single file. */
+    "removeComments": false,                  /* Do not emit comments to output. */
+    "resolveJsonModule": true,                /* enable import JSON files */
+    // "rootDir": "./",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "sourceMap": true,                        /* Generates corresponding '.map' file. */
+    "target": "esnext",                       /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
+
+    /* Strict Type-Checking Options */
+    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "noImplicitAny": false,                   /* Raise error on expressions and declarations with an implied 'any' type. TODO: enable later */
+    // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
+    // "strictFunctionTypes": true,           /* Enable strict checking of function types. */
+    // "strictNullChecks": true,              /* Enable strict null checks. */
+    // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
+
+    /* Additional Checks */
+    "noFallthroughCasesInSwitch": true,       /* Report errors for fallthrough cases in switch statement. */
+    "noImplicitReturns": true,                /* Report error when not all code paths in function return a value. */
+    "noUnusedLocals": true,                   /* Report errors on unused locals. */
+    "noUnusedParameters": true,               /* Report errors on unused parameters. */
+
+    /* Module Resolution Options */
+    "allowSyntheticDefaultImports": true,      /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+    "baseUrl": ".",                           /* Base directory to resolve non-absolute module names. */
+    "esModuleInterop": true,                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+    "moduleResolution": "node",                /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "API/*": ["api/*"],
+      "ASSETS/*": ["assets/*"],
+      "Atoms/*": ["app/atoms/*"],
+      "Atoms": ["app/atoms"],
+      "Components/*": ["app/components/*"],
+      "Components": ["app/components"],
+      "CONFIG/*": ["api/config/*"],
+      "CONSTANTS/*": ["api/constants/*"],
+      "Containers/*": ["app/containers/*"],
+      "Containers": ["app/containers"],
+      "Forms": ["app/forms"],
+      "Forms/*": ["app/forms/*"],
+      "HELPERS/*": ["api/helpers/*"],
+      "HOOKS/*": ["api/hooks/*"],
+      "Pages/*": ["app/pages/*"],
+      "Pages": ["app/pages"],
+    },
+    // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
+    // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
+    // "typeRoots": [],                       /* List of folders to include type definitions from. */
+    // "types": [],                           /* Type declaration files to be included in compilation. */
+
+    /* Source Map Options */
+    // "inlineSourceMap": true,               /* Emit a single file with source maps instead of having a separate file. */
+    // "inlineSources": true,                 /* Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set. */
+    // "mapRoot": "",                         /* Specify the location where debugger should locate map files instead of generated locations. */
+    // "sourceRoot": "",                      /* Specify the location where debugger should locate TypeScript files instead of source locations. */
+
+    /* Experimental Options */
+    // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
+    // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
+  },
+  "exclude": ["node_modules"],
+  "files": ["globals.d.ts", "type-utilities.d.ts"],
+  "include": ["api", "app"]
+  }
