@@ -1,16 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { GetServersResponse } from 'API/rest/dto/servers.interfaces';
+import React, { FunctionComponent } from 'react';
 
-const LastUpdated = ({ text }) => {
-  const lastUpdateTime = new Date();
-  const updatedCopy = `Last Updated: ${lastUpdateTime}`;
-  const copy = !text ? updatedCopy : `${text} | ${updatedCopy}`;
+interface LastUpdatedType {
+  server?: GetServersResponse;
+}
 
-  return <div className="pr-header-lastUpdate">{copy}</div>;
-};
+const LastUpdated: FunctionComponent<LastUpdatedType> = ({ server }) => {
+  const lastUpdate = server?.updatedAt;
+  const readableDate = lastUpdate && new Date(parseInt(lastUpdate) * 1000);
 
-LastUpdated.propTypes = {
-  text: PropTypes.string,
+  const updatedCopy = `Last Updated: ${readableDate}`;
+
+  return lastUpdate ? (
+    <div className="pr-header-lastUpdate">{updatedCopy}</div>
+  ) : null;
 };
 
 export default LastUpdated;
