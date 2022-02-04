@@ -1,5 +1,3 @@
-const postCSSPlugins = require('./postcss.config');
-
 module.exports = [
   {
     test: /\.ts(x)?$/,
@@ -20,12 +18,6 @@ module.exports = [
       'style-loader',
       'css-loader',
       'sass-loader',
-      {
-        loader: 'postcss-loader',
-        options: {
-          postcssOptions: postCSSPlugins,
-        },
-      },
     ],
   },
   // .svg files to be handled by @svgr/webpack
