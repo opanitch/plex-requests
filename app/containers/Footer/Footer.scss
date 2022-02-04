@@ -1,0 +1,17 @@
+.pr-footer {
+  width: 100%;
+  padding: 20px 25px;
+  align-items: center;
+
+  &-container {
+    background: $dark-grey-3;
+  }
+
+  &-top-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    color: $white;
+  }
+}

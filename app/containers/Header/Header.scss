@@ -1,9 +1,26 @@
 .pr-header {
   width: 100%;
-  padding: 20px 25px 0;
+  padding: 20px 25px;
+  align-items: center;
 
   &-container {
     background: $dark-grey-3;
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    width: 150px;
+    height: 65px;
+    display: inline-block;
+    fill: $white;
+
+    &-two {
+      height: 100px;
+    }
   }
 
   &-top-row {
@@ -11,17 +28,5 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-  }
-
-  &-logo {
-    width: 150px;
-    height: 65px;
-    display: inline-block;
-    position: relative;
-    fill: $white;
-
-    &-two {
-      height: 100px;
-    }
   }
 }

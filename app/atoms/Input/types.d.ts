@@ -1,4 +1,5 @@
 import * as REGEX_NAMES from 'CONSTANTS/regex';
+import React from 'react';
 import { LabelPosition } from './constants';
 
 export type LabelProps = JSX.IntrinsicElements['label'] & {
@@ -28,6 +29,20 @@ export interface RadioInputProps {
   pattern: string;
   regex: string | RegExp;
   required: boolean;
+  title: string;
+}
+
+export interface SelectInputProps {
+  className?: string;
+  defaultText?: string;
+  disabled?: boolean;
+  id: string;
+  labelPosition?: keyof typeof LabelPosition;
+  labelText: string;
+  name: string;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
+  options?: string[];
+  required?: boolean;
   title: string;
 }
 

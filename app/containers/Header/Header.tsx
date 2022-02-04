@@ -1,11 +1,9 @@
+import Logo from 'Atoms/Icon/Logo';
+import { FullWidthContainer } from 'Components';
+import { RequestCTA } from 'Components/RequestCTA/RequestCTA';
 import React, { FunctionComponent } from 'react';
 
-import Logo from 'Atoms/Icon/Logo';
-import { FullWidthContainer, LastUpdated, Navigation } from 'Components';
-
-type HeaderType = JSX.IntrinsicElements['header'];
-
-const Header: FunctionComponent<HeaderType> = () => {
+const Header: FunctionComponent<DivType> = () => {
   return (
     <FullWidthContainer className="pr-header-container">
       {({ ChildContainer }) => (
@@ -15,9 +13,10 @@ const Header: FunctionComponent<HeaderType> = () => {
               <div className="pr-header-logo">
                 <Logo classes="pr-icon-logo" id="plex-request-logo" />
               </div>
-              <LastUpdated />
+              <div className="pr-header-info">
+                <RequestCTA />
+              </div>
             </div>
-            <Navigation />
           </header>
         </ChildContainer>
       )}

@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
+import React, { FunctionComponent } from 'react';
 
-type ButtonProps = JSX.IntrinsicElements['button'] & {
+export type ButtonProps = JSX.IntrinsicElements['button'] & {
   buttonTheme?: string;
 };
 
@@ -10,7 +10,7 @@ export enum ButtonTheme {
   PRIMARY = 'PRIMARY',
 }
 
-const Button: FunctionComponent<ButtonProps> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   buttonTheme = 'BASE',
   className: parentClasses,
   disabled = false,
