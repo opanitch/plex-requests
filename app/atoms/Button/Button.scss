@@ -4,17 +4,21 @@
   border-radius: 30px;
   cursor: pointer;
 
+  &-base {
+    display: inline-block;
+  }
+
   &-container {
     display: flex;
   }
 
   &--primary {
-    background-color: $gamboge;
+    background-color: $font-color-primary;
   }
 
   &--secondary {
     background-color: transparent;
-    border-color: $gamboge;
+    border-color: $font-color-primary;
     border-width: 1px;
     border-style: solid;
   }
