@@ -13,8 +13,8 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
   const {
     getMoviePagination,
     // serverMessage: paginationError,
-    status: paginationStatus,
-    titlePagination,
+    status,
+    pagination,
   } = useGetMoviePagination();
 
   useEffect(() => {
@@ -22,8 +22,8 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
   }, [plex]);
 
   const isLoading = useMemo(
-    () => paginationStatus !== 'done' && paginationStatus !== 'error',
-    [paginationStatus]
+    () => status !== 'done' && status !== 'error',
+    [status]
   );
 
   return (
@@ -42,7 +42,7 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
                   headerLevel={2}
                   title={`${title}`}
                 />
-                <LibraryPagination pagination={titlePagination} />
+                <LibraryPagination pagination={pagination} />
                 {/* <Table
               className="pr-librarylist-table"
               content={testData.content}

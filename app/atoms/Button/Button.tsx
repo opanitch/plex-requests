@@ -29,7 +29,7 @@ export const Button: FunctionComponent<ButtonProps> = ({
       // Base State
       ['pr-button--base']: buttonTheme === ButtonTheme.BASE,
       ['pr-button--primary']: buttonTheme === ButtonTheme.PRIMARY,
-      ['pr-button--secondary']: buttonTheme === ButtonTheme.PRIMARY,
+      ['pr-button--secondary']: buttonTheme === ButtonTheme.SECONDARY,
     },
     // {
     //   // Base Theming

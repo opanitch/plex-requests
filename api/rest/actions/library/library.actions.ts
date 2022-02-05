@@ -2,29 +2,27 @@ import { PlexAPI } from 'API/store/store.interfaces';
 import { useCallback, useState } from 'react';
 import {
   GetMoviePagination,
-  QueryPagination,
+  GetTVPagination,
 } from './library.actions.interfaces';
 
 export const useGetMoviePagination = (): GetMoviePagination => {
   const [serverMessage, setServerMessage] = useState('');
   const [status, setStatus] = useState('initial');
-  const [titlePagination, setTitlePagination] = useState<
-    GetMoviePagination['titlePagination']
+  const [pagination, setPagination] = useState<
+    GetMoviePagination['pagination']
   >([]);
 
   const dispatchGetMoviePagination = useCallback(async (plex: PlexAPI) => {
     setStatus('fetching');
 
     try {
-      const movies: QueryPagination = await plex.query(
-        '/library/sections/1/firstCharacter'
-      );
+      const movies = await plex.query('/library/sections/1/firstCharacter');
 
-      setTitlePagination(movies.MediaContainer.Directory);
+      setPagination(movies.MediaContainer.Directory);
       setServerMessage('');
       setStatus('done');
     } catch (error) {
-      setTitlePagination([]);
+      setPagination([]);
       setServerMessage(error as any);
       setStatus('error');
     }
@@ -34,66 +32,105 @@ export const useGetMoviePagination = (): GetMoviePagination => {
     getMoviePagination: dispatchGetMoviePagination,
     serverMessage,
     status,
-    titlePagination,
+    pagination,
   };
 };
 
-// export const useGetTVPagination = (): GetMoviePagination => {
-//   const [serverMessage, setServerMessage] = useState('');
-//   const [status, setStatus] = useState('initial');
-//   const [titlePagination, setTitlePagination] = useState([]);
+export const useGetMoviesByLetter = () => {
+  const [serverMessage, setServerMessage] = useState('');
+  const [status, setStatus] = useState('initial');
+  const [movies, setMovies] = useState([]);
 
-//   const dispatchGetMoviePagination = useCallback(async (plex: PlexAPI) => {
-//     setStatus('fetching');
+  const dispatchGetMovies = useCallback(
+    async (plex: PlexAPI, letter: string) => {
+      setStatus('fetching');
 
-//     try {
-//       const movies: TVTitlePagination[] = await plex.query('/library/sections/1/firstCharacter');
+      try {
+        const movies = await plex.query(
+          `/library/sections/1/firstCharacter/${letter}`
+        );
 
-//       setTitlePagination(movies.MediaContainer.Directory);
-//       setServerMessage('');
-//       setStatus('done');
-//     } catch (error) {
-//       setTitlePagination([]);
-//       setServerMessage(error as any);
-//       setStatus('error');
-//     }
-//   }, []);
+        setMovies(movies.MediaContainer.Metadata);
+        setServerMessage('');
+        setStatus('done');
+      } catch (error) {
+        setMovies([]);
+        setServerMessage(error as any);
+        setStatus('error');
+      }
+    },
+    []
+  );
 
-//   return {
-//     getMoviePagination: dispatchGetMoviePagination,
-//     serverMessage,
-//     status,
-//     titlePagination,
-//   };
-// };
+  return {
+    getMovies: dispatchGetMovies,
+    movies,
+    serverMessage,
+    status,
+  };
+};
 
-// export const useGetMovies = () => {
-//   const [serverMessage, setServerMessage] = useState('');
-//   const [status, setStatus] = useState('initial');
-//   const [movies, setMovies] = useState(null);
+export const useGetTVPagination = (): GetTVPagination => {
+  const [serverMessage, setServerMessage] = useState('');
+  const [status, setStatus] = useState('initial');
+  const [pagination, setPagination] = useState<GetTVPagination['pagination']>(
+    []
+  );
 
-//   const dispatchGetMovies = useCallback(async () => {
-//     setStatus('fetching');
+  const dispatchGetTVPagination = useCallback(async (plex: PlexAPI) => {
+    setStatus('fetching');
 
-//     try {
-//       const movies = await apiClient.query(
-//         '/library/sections/1/firstCharacter'
-//       );
+    try {
+      const tvShows = await plex.query('/library/sections/2/firstCharacter');
 
-//       setMovies(movies.MediaContainer.Metadata);
-//       setServerMessage('');
-//       setStatus('done');
-//     } catch (error) {
-//       setMovies(null);
-//       setServerMessage(error as any);
-//       setStatus('error');
-//     }
-//   }, []);
+      setPagination(tvShows.MediaContainer.Directory);
+      setServerMessage('');
+      setStatus('done');
+    } catch (error) {
+      setPagination([]);
+      setServerMessage(error as any);
+      setStatus('error');
+    }
+  }, []);
 
-//   return {
-//     getMovies: dispatchGetMovies,
-//     movies,
-//     serverMessage,
-//     status,
-//   };
-// };
+  return {
+    getTVPagination: dispatchGetTVPagination,
+    serverMessage,
+    status,
+    pagination,
+  };
+};
+
+export const useGetTVByLetter = () => {
+  const [serverMessage, setServerMessage] = useState('');
+  const [status, setStatus] = useState('initial');
+  const [movies, setMovies] = useState([]);
+
+  const dispatchGetMovies = useCallback(
+    async (plex: PlexAPI, letter: string) => {
+      setStatus('fetching');
+
+      try {
+        const movies = await plex.query(
+          `/library/sections/2/firstCharacter/${letter}`
+        );
+
+        setMovies(movies.MediaContainer.Metadata);
+        setServerMessage('');
+        setStatus('done');
+      } catch (error) {
+        setMovies([]);
+        setServerMessage(error as any);
+        setStatus('error');
+      }
+    },
+    []
+  );
+
+  return {
+    getMovies: dispatchGetMovies,
+    movies,
+    serverMessage,
+    status,
+  };
+};

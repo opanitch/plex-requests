@@ -1,4 +1,7 @@
-import { QueryPagination } from 'API/rest/actions/library/library.actions.interfaces';
+import {
+  MediaByLetterResponse,
+  QueryPaginationResponse,
+} from 'API/rest/actions/library/library.actions.interfaces';
 
 export interface PlexAPI {
   hostname: string;
@@ -14,7 +17,7 @@ export interface PlexAPI {
     platformVersion: string;
   };
   serverUrl: string;
-  query: (path: string) => QueryPagination;
+  query: (path: string) => QueryPaginationResponse & MediaByLetterResponse;
 }
 
 export type State = StateObjects & StateActions;
