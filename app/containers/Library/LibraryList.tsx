@@ -1,5 +1,8 @@
 import { Status } from 'API/rest/actions/actions.interface';
-import { useGetMoviePagination } from 'API/rest/actions/library/library.actions';
+import {
+  useGetMoviePagination,
+  useGetMoviesByLetter,
+} from 'API/rest/actions/library/library.actions';
 import { usePlexRequestStore } from 'API/store/store';
 import { Card, Header } from 'Atoms';
 import { FullWidthContainer } from 'Components';
@@ -18,14 +21,33 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
     pagination,
   } = useGetMoviePagination();
 
-  useEffect(() => {
-    plex && getMoviePagination(plex);
-  }, [plex]);
+  const {
+    getMoviesByLetter,
+    movies,
+    // serverMessage: moviesError,
+    status: moviesStatus,
+  } = useGetMoviesByLetter();
 
   const isLoading = useMemo(
     () => status !== Status.SUCCESS && status !== Status.ERROR,
     [status]
   );
+
+  useEffect(() => {
+    plex && getMoviePagination(plex);
+  }, [plex]);
+
+  useEffect(() => {
+    if (moviesStatus === Status.SUCCESS) {
+      console.log(movies);
+    }
+  }, [movies]);
+
+  const onPaginationClick = (event) => {
+    console.log(event);
+
+    plex && getMoviesByLetter(plex, event.target.value);
+  };
 
   return (
     <FullWidthContainer className="pr-librarylist-container">
@@ -43,7 +65,10 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
                   headerLevel={2}
                   title={`${title}`}
                 />
-                <LibraryPagination pagination={pagination} />
+                <LibraryPagination
+                  pagination={pagination}
+                  onClick={onPaginationClick}
+                />
                 {/* <Table
               className="pr-librarylist-table"
               content={testData.content}

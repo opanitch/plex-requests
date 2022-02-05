@@ -3,6 +3,8 @@ import { useCallback, useState } from 'react';
 import { Status } from '../actions.interface';
 import {
   GetMoviePagination,
+  GetMoviesByLetter,
+  GetTVByLetter,
   GetTVPagination,
 } from './library.actions.interfaces';
 
@@ -37,12 +39,12 @@ export const useGetMoviePagination = (): GetMoviePagination => {
   };
 };
 
-export const useGetMoviesByLetter = () => {
+export const useGetMoviesByLetter = (): GetMoviesByLetter => {
   const [serverMessage, setServerMessage] = useState('');
   const [status, setStatus] = useState(Status.INITIAL);
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<GetMoviesByLetter['movies']>([]);
 
-  const dispatchGetMovies = useCallback(
+  const dispatchGetMoviesByLetter = useCallback(
     async (plex: PlexAPI, letter: string) => {
       setStatus(Status.BUSY);
 
@@ -64,7 +66,7 @@ export const useGetMoviesByLetter = () => {
   );
 
   return {
-    getMovies: dispatchGetMovies,
+    getMoviesByLetter: dispatchGetMoviesByLetter,
     movies,
     serverMessage,
     status,
@@ -102,12 +104,12 @@ export const useGetTVPagination = (): GetTVPagination => {
   };
 };
 
-export const useGetTVByLetter = () => {
+export const useGetTVByLetter = (): GetTVByLetter => {
   const [serverMessage, setServerMessage] = useState('');
   const [status, setStatus] = useState(Status.INITIAL);
-  const [movies, setMovies] = useState([]);
+  const [tvShows, setTVShows] = useState<GetTVByLetter['tvShows']>([]);
 
-  const dispatchGetMovies = useCallback(
+  const dispatchGetTVByLetter = useCallback(
     async (plex: PlexAPI, letter: string) => {
       setStatus(Status.BUSY);
 
@@ -116,11 +118,11 @@ export const useGetTVByLetter = () => {
           `/library/sections/2/firstCharacter/${letter}`
         );
 
-        setMovies(movies.MediaContainer.Metadata);
+        setTVShows(movies.MediaContainer.Metadata);
         setServerMessage('');
         setStatus(Status.SUCCESS);
       } catch (error) {
-        setMovies([]);
+        setTVShows([]);
         setServerMessage(error as any);
         setStatus(Status.ERROR);
       }
@@ -129,8 +131,8 @@ export const useGetTVByLetter = () => {
   );
 
   return {
-    getMovies: dispatchGetMovies,
-    movies,
+    getTVByLetter: dispatchGetTVByLetter,
+    tvShows,
     serverMessage,
     status,
   };

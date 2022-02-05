@@ -1,7 +1,7 @@
 import {
   MediaByLetterResponse,
   QueryPaginationResponse,
-} from 'API/rest/actions/library/library.actions.interfaces';
+} from 'API/rest/dto/query.interfaces';
 
 export interface PlexAPI {
   hostname: string;

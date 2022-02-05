@@ -1,19 +1,19 @@
 .pr-button {
   padding: 15px;
+  background-color: transparent;
   border: 0;
-  border-radius: 30px;
   cursor: pointer;
-
-  &-base {
-    display: inline-block;
-  }
 
   &-container {
     display: flex;
   }
 
+  &--base {
+  }
+
   &--primary {
     background-color: $font-color-primary;
+    border-radius: 30px;
 
     &:hover {
       opacity: 0.9;
@@ -23,8 +23,9 @@
   &--secondary {
     background-color: transparent;
     border-color: $font-color-primary;
-    border-width: 1px;
+    border-radius: 30px;
     border-style: solid;
+    border-width: 1px;
 
     &:hover {
       opacity: 0.9;

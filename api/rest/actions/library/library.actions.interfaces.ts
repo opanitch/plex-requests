@@ -1,3 +1,4 @@
+import { MediaMetaData, TitlePagination } from 'API/rest/dto/query.interfaces';
 import { PlexAPI } from 'API/store/store.interfaces';
 import { ActionHook } from '../actions.interface';
 
@@ -7,8 +8,8 @@ export interface GetMoviePagination extends ActionHook {
 }
 
 export interface GetMoviesByLetter extends ActionHook {
-  getMoviesByLetter: (plex: PlexAPI) => void;
-  media: TitlePagination[];
+  getMoviesByLetter: (plex: PlexAPI, letter: string) => void;
+  movies: MediaMetaData[];
 }
 
 export interface GetTVPagination extends ActionHook {
@@ -17,49 +18,6 @@ export interface GetTVPagination extends ActionHook {
 }
 
 export interface GetTVByLetter extends ActionHook {
-  getTVByLetter: (plex: PlexAPI) => void;
-  media: TitlePagination[];
-}
-
-export interface TitlePagination {
-  key: string;
-  size: number;
-  title: string;
-}
-
-export interface MediaByLetterResponse {
-  MediaContainer: {
-    size: number;
-    allowSync: boolean;
-    art: string;
-    content: string;
-    identifier: string;
-    mediaTagPrefix: string;
-    mediaTagVersion: number;
-    thumb: string;
-    title1: string;
-    title2: string;
-    viewGroup: string;
-    viewMode: number;
-    Directory: TitlePagination[];
-    Metadata: [];
-  };
-}
-
-export interface QueryPaginationResponse {
-  MediaContainer: {
-    allowSync: boolean;
-    art: string;
-    content: string;
-    identifier: string;
-    mediaTagPrefix: string;
-    mediaTagVersion: number;
-    size: number;
-    thumb: string;
-    title1: string;
-    title2: string;
-    viewGroup: string;
-    viewMode: number;
-    Directory: TitlePagination[];
-  };
+  getTVByLetter: (plex: PlexAPI, letter: string) => void;
+  tvShows: MediaMetaData[];
 }

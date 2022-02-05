@@ -9,16 +9,24 @@ import './LibraryPagination.styles.scss';
 
 export interface LibraryPaginationType {
   pagination: GetMoviePagination['pagination'] & GetTVPagination['pagination'];
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const LibraryPagination: FunctionComponent<LibraryPaginationType> = ({
   pagination,
+  onClick,
 }) => {
   return (
     <List className="pr-library-pagination-list">
       {pagination.map((letter, index) => (
         <ListItem className="pr-library-pagination-list-item" key={index}>
-          <Button buttonTheme={ButtonTheme.BASE}>{letter.title}</Button>
+          <Button
+            buttonTheme={ButtonTheme.BASE}
+            onClick={onClick}
+            value={letter.key}
+          >
+            {letter.title}
+          </Button>
         </ListItem>
       ))}
     </List>
