@@ -1,3 +1,4 @@
+import { Status } from 'API/rest/actions/actions.interface';
 import { useAuthenticate } from 'API/rest/actions/authenticate/authenticate.actions';
 import App from 'Components/App';
 import React, { FunctionComponent, useEffect } from 'react';
@@ -14,7 +15,7 @@ export const AppContainer: FunctionComponent = () => {
   return (
     <>
       <Header />
-      {authStatus !== 'done' ? <>Loading</> : <App />}
+      {authStatus !== Status.SUCCESS ? <>Loading</> : <App />}
       <Footer />
     </>
   );

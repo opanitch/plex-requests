@@ -1,3 +1,4 @@
+import { Status } from 'API/rest/actions/actions.interface';
 import { useGetMoviePagination } from 'API/rest/actions/library/library.actions';
 import { usePlexRequestStore } from 'API/store/store';
 import { Card, Header } from 'Atoms';
@@ -22,7 +23,7 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
   }, [plex]);
 
   const isLoading = useMemo(
-    () => status !== 'done' && status !== 'error',
+    () => status !== Status.SUCCESS && status !== Status.ERROR,
     [status]
   );
 

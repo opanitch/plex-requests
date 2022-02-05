@@ -1,31 +1,33 @@
 import { authenticatePlexWrapper } from 'API/rest/authenticate/authenticate.rest';
 import { useCallback, useState } from 'react';
+import { Status } from '../actions.interface';
+import { Authenticate } from './authenticate.interfaces';
 
-export const useAuthenticate = () => {
+export const useAuthenticate = (): Authenticate => {
   const [serverMessage, setServerMessage] = useState('');
-  const [status, setStatus] = useState('initial');
-  const [authentication, setAuthentication] = useState(null);
+  const [status, setStatus] = useState(Status.INITIAL);
+  const [token, setAuthentication] = useState<Authenticate['token']>(null);
 
   const dispatchAuthenticateWrapper = useCallback(async () => {
-    setStatus('fetching');
+    setStatus(Status.BUSY);
 
     try {
-      const authentication = await authenticatePlexWrapper();
+      const token: string = await authenticatePlexWrapper();
 
-      setAuthentication(authentication);
+      setAuthentication(token);
       setServerMessage('');
-      setStatus('done');
+      setStatus(Status.SUCCESS);
     } catch (error) {
       setAuthentication(null);
       setServerMessage(error as any);
-      setStatus('error');
+      setStatus(Status.ERROR);
     }
   }, []);
 
   return {
     authenticate: dispatchAuthenticateWrapper,
-    authentication,
     serverMessage,
     status,
+    token,
   };
 };
