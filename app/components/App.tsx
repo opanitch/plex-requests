@@ -1,6 +1,5 @@
 import { FullWidthContainer } from 'Components';
-import { LibraryList } from 'Containers';
-import { ServerSelection } from 'Containers/ServerSelection/ServerSelection';
+import { LibraryList, ServerSelection } from 'Containers';
 import React, { FunctionComponent } from 'react';
 
 export const App: FunctionComponent<DivType> = () => (

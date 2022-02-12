@@ -5,7 +5,6 @@ import {
 import { Button, List, ListItem } from 'Atoms';
 import { ButtonTheme } from 'Atoms/Button/Button';
 import React, { FunctionComponent } from 'react';
-import './LibraryPagination.styles.scss';
 
 export interface LibraryPaginationType {
   pagination: GetMoviePagination['pagination'] & GetTVPagination['pagination'];

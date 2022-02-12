@@ -12,7 +12,7 @@ export interface GenreType {
 
 export interface MediaByLetterResponse {
   MediaContainer: {
-    size: number;
+    Metadata: MediaMetaData[];
     allowSync: boolean;
     art: string;
     identifier: string;
@@ -21,75 +21,76 @@ export interface MediaByLetterResponse {
     librarySectionUUID: string;
     mediaTagPrefix: string;
     mediaTagVersion: number;
+    size: number;
     thumb: string;
     title1: string;
     title2: string;
     viewGroup: string;
     viewMode: number;
-    Metadata: MediaMetaData[];
   };
 }
 
 export interface MediaMetaData {
-  ratingKey: string;
-  key: string;
-  guid: string;
-  studio: string;
-  type: string;
-  title: string;
-  contentRating: string;
-  summary: string;
-  rating: number;
+  Country: CountryType[];
+  Director: DirectorType[];
+  Genre: GenreType[];
+  Media: MediaType[];
+  Role: RoleType[];
+  Writer: WriterType[];
+  addedAt: number;
+  art: string;
   audienceRating: number;
-  year: number;
+  audienceRatingImage: string;
+  contentRating: string;
+  duration: number;
+  guid: string;
+  key: string;
+  originallyAvailableAt: string;
+  primaryExtraKey: string;
+  rating: number;
+  ratingImage: string;
+  ratingKey: string;
+  studio: string;
+  summary: string;
   tagline: string;
   thumb: string;
-  art: string;
-  duration: number;
-  originallyAvailableAt: string;
-  addedAt: number;
+  title: string;
+  type: string;
   updatedAt: number;
-  audienceRatingImage: string;
-  primaryExtraKey: string;
-  ratingImage: string;
-  Media: MediaType[];
-  Genre: GenreType[];
-  Director: DirectorType[];
-  Writer: WriterType[];
-  Country: CountryType[];
-  Role: RoleType[];
+  year: number;
 }
 
 export interface MediaType {
-  id: number;
-  duration: number;
-  bitrate: number;
-  width: number;
-  height: number;
+  Part: PartType[];
   aspectRatio: number;
   audioChannels: number;
   audioCodec: string;
-  videoCodec: string;
-  videoResolution: string;
+  bitrate: number;
   container: string;
+  duration: number;
+  height: number;
+  id: number;
+  videoCodec: string;
   videoFrameRate: string;
   videoProfile: string;
-  Part: PartType[];
+  videoResolution: string;
+  width: number;
 }
 
 export interface PartType {
-  id: number;
-  key: string;
+  container: string;
   duration: number;
   file: string;
-  size: number;
-  container: string;
+  id: number;
   indexes: string;
+  key: string;
+  size: number;
   videoProfile: string;
 }
 
 export interface QueryPaginationResponse {
   MediaContainer: {
+    Directory: TitlePagination[];
     allowSync: boolean;
     art: string;
     content: string;
@@ -102,7 +103,6 @@ export interface QueryPaginationResponse {
     title2: string;
     viewGroup: string;
     viewMode: number;
-    Directory: TitlePagination[];
   };
 }
 

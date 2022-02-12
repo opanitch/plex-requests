@@ -1,9 +1,8 @@
 import { useGetServers } from 'API/rest/actions/servers/servers.actions';
 import { GetServersResponse } from 'API/rest/dto/servers.interfaces';
 import { usePlexRequestStore } from 'API/store/store';
-import { Card } from 'Atoms';
+import { Card, SelectInput } from 'Atoms';
 import { LabelPosition } from 'Atoms/Input/constants';
-import SelectInput from 'Atoms/Input/SelectInput';
 import { FullWidthContainer, LastUpdated } from 'Components';
 import PlexAPI from 'plex-api';
 import React, { FunctionComponent, useEffect, useState } from 'react';
@@ -27,7 +26,7 @@ export const ServerSelection: FunctionComponent<DivType> = () => {
     if (selectedServer) {
       const apiClient = new PlexAPI({
         hostname: selectedServer.localAddresses,
-        token: selectedServer?.accessToken,
+        token: selectedServer.accessToken,
         options: {
           deviceName: 'Plex Requests API',
           product: 'Plex Web',

@@ -1,4 +1,5 @@
-import { Button, ButtonProps, ButtonTheme } from 'Atoms/Button/Button';
+import { Button } from 'Atoms';
+import { ButtonProps, ButtonTheme } from 'Atoms/Button/Button';
 import React, { FunctionComponent } from 'react';
 
 export const RequestCTA: FunctionComponent<ButtonProps> = () => {

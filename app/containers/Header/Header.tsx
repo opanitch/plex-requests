@@ -1,6 +1,5 @@
-import Logo from 'Atoms/Icon/Logo';
-import { FullWidthContainer } from 'Components';
-import { RequestCTA } from 'Components/RequestCTA/RequestCTA';
+import { LogoIcon } from 'Atoms';
+import { FullWidthContainer, RequestCTA } from 'Components';
 import React, { FunctionComponent } from 'react';
 
 const Header: FunctionComponent<DivType> = () => {
@@ -11,7 +10,7 @@ const Header: FunctionComponent<DivType> = () => {
           <header className="pr-header">
             <div className="pr-header-top-row">
               <div className="pr-header-logo">
-                <Logo classes="pr-icon-logo" id="plex-request-logo" />
+                <LogoIcon classes="pr-icon-logo" id="plex-request-logo" />
               </div>
               <div className="pr-header-info">
                 <RequestCTA />
