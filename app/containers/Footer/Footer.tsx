@@ -1,22 +1,16 @@
+import { FullWidthContainer } from 'Components';
 import React, { FunctionComponent } from 'react';
-
-import Logo from 'Atoms/Icon/Logo';
-import { FullWidthContainer, LastUpdated, Navigation } from 'Components';
 
 type HeaderType = JSX.IntrinsicElements['footer'];
 
 const Header: FunctionComponent<HeaderType> = () => {
   return (
-    <FullWidthContainer className="bg-0">
+    <FullWidthContainer className="pr-footer-container">
       {({ ChildContainer }) => (
         <ChildContainer>
-          <footer className="pr-header">
-            <Navigation />
-            <div className="pr-header-top-row">
-              <div className="pr-header-logo">
-                <Logo classes="pr-icon-logo" id="plex-request-logo" />
-              </div>
-              <LastUpdated />
+          <footer className="pr-footer">
+            <div className="pr-footer-top-row">
+              &copy; {new Date().getFullYear()} Oren Panitch
             </div>
           </footer>
         </ChildContainer>

@@ -1,10 +1,8 @@
-// import axios from "axios";
-
+import { PlexServer } from 'plex-wrapper/lib/models/server';
+import { PlexSession } from 'plex-wrapper/lib/models/session';
 import { client } from '../authenticate/authenticate.rest';
 
-export const getServers = async (): Promise<any> => {
-  // const response = await axios.get(`${BASE_URL}/${srn}`);
-  // return response.data;
+export const getServers = async (): Promise<PlexServer[]> => {
   const response = await client.getServers();
 
   return response;
@@ -13,9 +11,7 @@ export const getServers = async (): Promise<any> => {
 export const getSessions = async (
   address: string,
   port: number
-): Promise<any> => {
-  // const response = await axios.get(`${BASE_URL}/${srn}`);
-  // return response.data;
+): Promise<PlexSession[]> => {
   const response = await client.getSessions(address, port);
 
   return response;

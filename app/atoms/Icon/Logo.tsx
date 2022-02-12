@@ -1,7 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
-const Logo = ({ classes, id }) => {
+interface LogoType {
+  classes: string;
+  id: string;
+}
+
+export const Logo: FunctionComponent<LogoType> = ({ classes, id }) => {
   const classList = classes ? `pr-icon ${classes}` : 'pr-icon';
   const iconId = !id ? '' : id;
 
@@ -48,11 +52,6 @@ const Logo = ({ classes, id }) => {
       </g>
     </svg>
   );
-};
-
-Logo.propTypes = {
-  classes: PropTypes.string,
-  id: PropTypes.string,
 };
 
 export default Logo;

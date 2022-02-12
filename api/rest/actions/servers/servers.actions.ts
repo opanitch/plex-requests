@@ -1,33 +1,33 @@
-import { getUsers } from 'API/rest/users/users.rest';
+import { getServers } from 'API/rest/servers/servers.rest';
 import { useCallback, useState } from 'react';
 import { Status } from '../actions.interface';
-import { GetUsers } from './users.interfaces';
+import { GetServers } from './servers.actions.interfaces';
 
-export const useGetUsers = (): GetUsers => {
+export const useGetServers = (): GetServers => {
   const [serverMessage, setServerMessage] = useState('');
   const [status, setStatus] = useState(Status.INITIAL);
-  const [users, setUsers] = useState<GetUsers['users']>([]);
+  const [servers, setServers] = useState<GetServers['servers']>([]);
 
-  const dispatchGetUsers = useCallback(async () => {
+  const dispatchGetServers = useCallback(async () => {
     setStatus(Status.BUSY);
 
     try {
-      const users = await getUsers();
+      const servers = await getServers();
 
-      setUsers(users);
+      setServers(servers);
       setServerMessage('');
       setStatus(Status.SUCCESS);
     } catch (error) {
-      setUsers([]);
+      setServers([]);
       setServerMessage(error as any);
       setStatus(Status.ERROR);
     }
   }, []);
 
   return {
-    getUsers: dispatchGetUsers,
+    getServers: dispatchGetServers,
+    servers,
     serverMessage,
     status,
-    users,
   };
 };

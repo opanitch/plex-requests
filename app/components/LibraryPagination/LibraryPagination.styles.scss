@@ -1,0 +1,15 @@
+.pr-library-pagination {
+  &-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &-item {
+      width: 35px;
+      padding: 10px 0px;
+    }
+  }
+}
