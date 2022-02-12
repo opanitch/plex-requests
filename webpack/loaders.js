@@ -20,6 +20,15 @@ module.exports = [
       'sass-loader',
     ],
   },
+  {
+    test: /\.(s)?css$/,
+    include: /node_modules/,
+    use: [
+      'style-loader',
+      'css-loader',
+      'sass-loader',
+    ],
+  },
   // .svg files to be handled by @svgr/webpack
   {
       test: /\.svg$/,
