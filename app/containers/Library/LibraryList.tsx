@@ -5,8 +5,11 @@ import {
 } from 'API/rest/actions/library/library.actions';
 import { usePlexRequestStore } from 'API/store/store';
 import { Card, Header } from 'Atoms';
-import { FullWidthContainer } from 'Components';
-import { LibraryPagination } from 'Components/LibraryPagination/LibraryPagination';
+import {
+  FullWidthContainer,
+  LibraryListTable,
+  LibraryPagination,
+} from 'Components';
 import React, { FunctionComponent, useEffect, useMemo } from 'react';
 
 const LibraryList: FunctionComponent<DivType> = ({ title }) => {
@@ -25,7 +28,7 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
     getMoviesByLetter,
     movies,
     // serverMessage: moviesError,
-    status: moviesStatus,
+    // status: moviesStatus,
   } = useGetMoviesByLetter();
 
   const isLoading = useMemo(
@@ -37,26 +40,16 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
     plex && getMoviePagination(plex);
   }, [plex]);
 
-  useEffect(() => {
-    if (moviesStatus === Status.SUCCESS) {
-      console.log(movies);
-    }
-  }, [movies]);
-
   const onPaginationClick = (event) => {
-    console.log(event);
-
     plex && getMoviesByLetter(plex, event.target.value);
   };
 
-  return (
+  return !plex ? null : (
     <FullWidthContainer className="pr-librarylist-container">
       {({ ChildContainer }) => (
         <ChildContainer>
-          <Card>
-            {!plex ? (
-              <>EMPTY</>
-            ) : isLoading ? (
+          <Card className="pr-librarylist-card">
+            {isLoading ? (
               <>Loading</>
             ) : (
               <>
@@ -69,12 +62,7 @@ const LibraryList: FunctionComponent<DivType> = ({ title }) => {
                   pagination={pagination}
                   onClick={onPaginationClick}
                 />
-                {/* <Table
-              className="pr-librarylist-table"
-              content={testData.content}
-              data={testData.data}
-              columns={testData.columns}
-            /> */}
+                <LibraryListTable media={movies} />
               </>
             )}
           </Card>
