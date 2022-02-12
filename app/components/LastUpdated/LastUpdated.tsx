@@ -1,8 +1,8 @@
-import { GetServersResponse } from 'API/rest/dto/servers.interfaces';
+import { PlexServer } from 'plex-wrapper/lib/models/server';
 import React, { FunctionComponent } from 'react';
 
 interface LastUpdatedType {
-  server?: GetServersResponse;
+  server?: PlexServer;
 }
 
 const LastUpdated: FunctionComponent<LastUpdatedType> = ({ server }) => {

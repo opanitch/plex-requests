@@ -1,10 +1,10 @@
 import { useGetServers } from 'API/rest/actions/servers/servers.actions';
-import { GetServersResponse } from 'API/rest/dto/servers.interfaces';
 import { usePlexRequestStore } from 'API/store/store';
 import { Card, SelectInput } from 'Atoms';
 import { LabelPosition } from 'Atoms/Input/constants';
 import { FullWidthContainer, LastUpdated } from 'Components';
 import PlexAPI from 'plex-api';
+import { PlexServer } from 'plex-wrapper/lib/models/server';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 
 export const ServerSelection: FunctionComponent<DivType> = () => {
@@ -12,9 +12,9 @@ export const ServerSelection: FunctionComponent<DivType> = () => {
     setPlex: state.setPlex,
   }));
 
-  const [selectedServer, setSelectedServer] = useState<
-    GetServersResponse | undefined
-  >(undefined);
+  const [selectedServer, setSelectedServer] = useState<PlexServer | undefined>(
+    undefined
+  );
 
   const { getServers, servers } = useGetServers();
 
